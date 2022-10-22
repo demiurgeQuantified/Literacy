@@ -18,18 +18,26 @@
 do
     local scriptManager = getScriptManager()
 
-    getScriptManager():getItem('Base.Book'):DoParam('XPReward = 20')
-    getScriptManager():getItem('Base.Magazine'):DoParam('XPReward = 3')
-    getScriptManager():getItem('Base.TVMagazine'):DoParam('XPReward = 3')
-    getScriptManager():getItem('Base.HottieZ'):DoParam('XPReward = 3')
-    getScriptManager():getItem('Base.ComicBook'):DoParam('XPReward = 3')
-    getScriptManager():getItem('Base.Newspaper'):DoParam('XPReward = 4.5')
+    scriptManager:getItem('Base.Book'):DoParam('XPReward = 20')
+    scriptManager:getItem('Base.Magazine'):DoParam('XPReward = 3')
+    scriptManager:getItem('Base.TVMagazine'):DoParam('XPReward = 3')
+    scriptManager:getItem('Base.HottieZ'):DoParam('XPReward = 3')
+    scriptManager:getItem('Base.ComicBook'):DoParam('XPReward = 3')
+    scriptManager:getItem('Base.Newspaper'):DoParam('XPReward = 4.5')
 
-    getScriptManager():getItem('Base.MagazineCrossword1'):DoParam('XPReward = 3')
-    getScriptManager():getItem('Base.MagazineCrossword2'):DoParam('XPReward = 3')
-    getScriptManager():getItem('Base.MagazineCrossword3'):DoParam('XPReward = 3')
+    scriptManager:getItem('Base.MagazineCrossword1'):DoParam('XPReward = 3')
+    scriptManager:getItem('Base.MagazineCrossword2'):DoParam('XPReward = 3')
+    scriptManager:getItem('Base.MagazineCrossword3'):DoParam('XPReward = 3')
 
-    getScriptManager():getItem('Base.MagazineWordsearch1'):DoParam('XPReward = 3')
-    getScriptManager():getItem('Base.MagazineWordsearch2'):DoParam('XPReward = 3')
-    getScriptManager():getItem('Base.MagazineWordsearch3'):DoParam('XPReward = 3')
+    scriptManager:getItem('Base.MagazineWordsearch1'):DoParam('XPReward = 3')
+    scriptManager:getItem('Base.MagazineWordsearch2'):DoParam('XPReward = 3')
+    scriptManager:getItem('Base.MagazineWordsearch3'):DoParam('XPReward = 3')
+
+    local bookToModel = {['Trapping'] = 4, ['Fishing'] = 5, ['Carpentry'] = 8, ['Mechanic'] = 11, ['FirstAid'] = 2,
+    ['MetalWelding'] = 7, ['Electrician'] = 6, ['Cooking'] = 9, ['Farming'] = 3, ['Foraging'] = 10, ['Tailoring'] = 11}
+    for skillbook,model in pairs(bookToModel) do
+        for i=1,5 do
+            scriptManager:getItem('Base.Book' .. skillbook .. i):DoParam('StaticModel = Literacy.Book' .. model)
+        end
+    end
 end

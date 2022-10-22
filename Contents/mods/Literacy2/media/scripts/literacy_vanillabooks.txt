@@ -1,0 +1,53 @@
+module Literacy
+{
+    model Book2
+    {
+        mesh = Book,
+        texture = WorldItems/BookLightBlue,
+    }
+    model Book3
+    {
+        mesh = Book,
+        texture = WorldItems/BookLightGreen,
+    }
+    model Book4
+    {
+        mesh = Book,
+        texture = WorldItems/BookYellowBrown,
+    }
+    model Book5
+    {
+        mesh = Book,
+        texture = WorldItems/BookPurple,
+    }
+    model Book6
+    {
+        mesh = Book,
+        texture = WorldItems/BookRedPink,
+    }
+    model Book7
+    {
+        mesh = Book,
+        texture = WorldItems/BookGrey,
+    }
+    model Book8
+    {
+        mesh = Book,
+        texture = WorldItems/BookBrown,
+    }
+    model Book9
+    {
+        mesh = Book,
+        texture = WorldItems/BookDarkCyan,
+    }
+    model Book10
+    {
+        mesh = Book,
+        texture = WorldItems/BookGreen,
+    }
+    model Book11
+    {
+        mesh = Book,
+        texture = WorldItems/BookYellow,
+    }
+}
