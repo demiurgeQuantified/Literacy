@@ -83,7 +83,7 @@ end
 
 function Literacy.MarkReadBooks(inventoryPage, state)
     if state == 'end' and inventoryPage.inventoryPane ~= nil then
-        local books = inventoryPage.inventoryPane.inventory:getAllType('Base.Book')
+        local books = inventoryPage.inventoryPane.inventory:getAllCategory('Literature')
         for i=0,books:size()-1 do
             local book = books:get(i)
             if Literacy.PlayerHasReadBook(getPlayer(), book) then

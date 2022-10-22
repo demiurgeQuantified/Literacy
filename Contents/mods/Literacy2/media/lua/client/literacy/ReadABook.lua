@@ -100,8 +100,11 @@ function ISReadABook:perform()
         local modData = self.item:getModData()
         local XPReward = modData['XPReward'] or 3
         self.character:getXp():AddXP(Perks.Reading, (XPReward * 4) * SandboxVars.Literacy.XPMultiplier)
-        if not modData['AlreadyReadPlayers'] then modData['AlreadyReadPlayers'] = {} end
-        modData['AlreadyReadPlayers'][Literacy.getIdentifier(self.character)] = true
+        if not IsRecipeBook then
+            if not modData['AlreadyReadPlayers'] then modData['AlreadyReadPlayers'] = {} end
+            modData['AlreadyReadPlayers'][Literacy.getIdentifier(self.character)] = true
+            self.item:setName(self.item:getScriptItem():getDisplayName() .. getText('IGUI_ReadIndicator'))
+        end
     end
     old_perform(self)
 end
@@ -128,4 +131,17 @@ function ISReadABook:changeMaxTime(newTime)
     self:setTime(newTime)
     self.action:setTime(newTime)
     self:setCurrentTime(self.action:getCurrentTime() * mult)
+end
+
+do
+    local metatable = __classmetatables[zombie.characters.IsoPlayer.class].__index
+    local old_ReadLiterature = metatable.ReadLiterature
+    function metatable.ReadLiterature(self, item) -- lua reimplementation of ReadLiterature that doesn't remove the item
+        if item:getTeachedRecipes() and not item:getTeachedRecipes():isEmpty() then
+            old_ReadLiterature(self, item)
+        else
+            self:getStats():setStress(self:getStats():getStress() + item:getStressChange())
+            self:getBodyDamage():JustReadSomething(item)
+        end
+    end
 end

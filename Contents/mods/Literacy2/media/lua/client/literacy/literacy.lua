@@ -81,3 +81,7 @@ Events.LevelPerk.Add(Literacy.LevelPerk)
 function Literacy.PlayerHasReadBook(player, book)
     return book:getModData()['AlreadyReadPlayers'] and book:getModData()['AlreadyReadPlayers'][Literacy.getIdentifier(player)]
 end
+
+function Literacy.IsRecipeBook(book)
+    return item:getTeachedRecipes() and not item:getTeachedRecipes():isEmpty()
+end
