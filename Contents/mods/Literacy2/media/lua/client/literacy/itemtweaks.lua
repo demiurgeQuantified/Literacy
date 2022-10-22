@@ -19,6 +19,7 @@ do
     local scriptManager = getScriptManager()
 
     scriptManager:getItem('Base.Book'):DoParam('XPReward = 20')
+    scriptManager:getItem('Base.Book'):DoParam('ReplaceOnUse = Book')
     scriptManager:getItem('Base.Magazine'):DoParam('XPReward = 3')
     scriptManager:getItem('Base.TVMagazine'):DoParam('XPReward = 3')
     scriptManager:getItem('Base.HottieZ'):DoParam('XPReward = 3')

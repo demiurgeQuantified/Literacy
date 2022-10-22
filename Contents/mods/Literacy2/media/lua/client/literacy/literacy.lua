@@ -17,6 +17,16 @@
 ]]
 Literacy = Literacy or {}
 
+if getSteamModeActive() then
+    function Literacy.getIdentifier(player)
+        return player:getSteamID()
+    end
+else
+    function Literacy.getIdentifier(player)
+        return player:getUsername()
+    end
+end
+
 local readingDifficultyMultipliers = {1, 1.05, 1.1, 1.15, 1.2, 1.25, 1.3, 1.35, 1.4, 1.45}
 
 local function setInitialLiteracy()
@@ -140,6 +150,8 @@ function ISReadABook:perform()
         local modData = self.item:getModData()
         local XPReward = modData['XPReward'] or 3
         self.character:getXp():AddXP(Perks.Reading, (XPReward * 4) * SandboxVars.Literacy.XPMultiplier)
+        if not modData['AlreadyReadPlayers'] then modData['AlreadyReadPlayers'] = {} end
+        modData['AlreadyReadPlayers'][Literacy.getIdentifier(self.character)] = true
     end
     old_perform(self)
 end
@@ -147,10 +159,16 @@ end
 local old_isValid = ISReadABook.isValid
 
 function ISReadABook:isValid()
+    if self.item:getModData()['AlreadyReadPlayers'] and self.item:getModData()['AlreadyReadPlayers'][Literacy.getIdentifier(self.character)] then
+        self.character:Say(getText("IGUI_PlayerText_AlreadyRead"))
+        return false
+    end
+
     if not self.character:isSitOnGround() and SandboxVars.Literacy.StandingReadingSpeed == 0 and not self.character:getVehicle() then
         self.character:Say(getText("IGUI_PlayerText_CantReadStanding"))
         return false
     end
+    
     ISReadABook.checkMultiplier(self)
     return old_isValid(self)
 end
