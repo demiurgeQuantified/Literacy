@@ -1,6 +1,6 @@
 version=1
 id=2812583527
-title=Literacy Mod 2.0 - Learn to Read, Read Faster
+title=Albion's Literacy Mod 2.0 - Learn to Read, Read Faster
 description=[h1]Learn to Read![/h1]
 description=With this mod, your reading speed is affected by your literacy level, which you can increase by reading books. Even illiterate characters can learn to read by finding the rare 'Learn to Read!' magazine, but their reading speed will be extremely slow as they catch up, and they will still suffer from permanent downsides. This offers an immersive way to increase the often complained about speed at which characters read.
 description=[h1]New Trait[/h1]
