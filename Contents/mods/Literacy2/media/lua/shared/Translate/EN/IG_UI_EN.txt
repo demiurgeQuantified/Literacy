@@ -4,6 +4,6 @@ IGUI_EN = {
     IGUI_XP_readingspeed = "Reading Speed: %1",
     IGUI_PlayerText_CantReadStanding = "I need to sit down to read.",
     IGUI_PlayerText_AlreadyRead = "I've already read this one...",
-    IGUI_PlayerText_AlreadyRead2 = "I don't want to read that one again.",
+    IGUI_PlayerText_AlreadyRead2 = "I don't want to read that again.",
     IGUI_ReadIndicator = " (Read)",
 }

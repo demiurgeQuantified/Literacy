@@ -100,7 +100,7 @@ function ISReadABook:perform()
         local modData = self.item:getModData()
         local XPReward = modData['XPReward'] or 3
         self.character:getXp():AddXP(Perks.Reading, (XPReward * 4) * SandboxVars.Literacy.XPMultiplier)
-        if not IsRecipeBook then
+        if SandboxVars.Literacy.DontDestroyStatBooks and not Literacy.IsRecipeBook(self.item) then
             if not modData['AlreadyReadPlayers'] then modData['AlreadyReadPlayers'] = {} end
             modData['AlreadyReadPlayers'][Literacy.getIdentifier(self.character)] = true
             self.item:setName(self.item:getScriptItem():getDisplayName() .. getText('IGUI_ReadIndicator'))
@@ -142,7 +142,7 @@ do
     local metatable = __classmetatables[zombie.characters.IsoPlayer.class].__index
     local old_ReadLiterature = metatable.ReadLiterature
     function metatable.ReadLiterature(self, item) -- lua reimplementation of ReadLiterature that doesn't remove the item
-        if item:getTeachedRecipes() and not item:getTeachedRecipes():isEmpty() then
+        if Literacy.IsRecipeBook(item) or not SandboxVars.Literacy.DontDestroyStatBooks then
             old_ReadLiterature(self, item)
         else
             self:getStats():setStress(self:getStats():getStress() + item:getStressChange())

@@ -83,5 +83,5 @@ function Literacy.PlayerHasReadBook(player, book)
 end
 
 function Literacy.IsRecipeBook(book)
-    return item:getTeachedRecipes() and not item:getTeachedRecipes():isEmpty()
+    return book:getTeachedRecipes() and not book:getTeachedRecipes():isEmpty()
 end
