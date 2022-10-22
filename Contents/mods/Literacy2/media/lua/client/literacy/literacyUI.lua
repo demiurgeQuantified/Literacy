@@ -15,31 +15,6 @@
 
     For any questions, contact me through steam or on Discord - albion#0123
 ]]
---[[local function startReadingLiteracyMag(item, player)
-    local character = getSpecificPlayer(player)
-    if luautils.haveToBeTransfered(character, item) then
-        ISTimedActionQueue.add(ISInventoryTransferAction:new(character, item, item:getContainer(), character:getInventory()))
-    end
-	ISTimedActionQueue.add(ReadLiteracyMag:new(character, item, 69))
-end
-
-local function LiteracyMagMenu(player, context, items)
-    for _,v in ipairs(items) do
-        local item = v;
-        if not instanceof(v, 'InventoryItem') then
-            item = v.items[1];
-        end
-
-        local itemType = item:getType() or nil
-        if itemType == 'LiteracyMag' and getSpecificPlayer(player):HasTrait('Illiterate') then
-            context:addOption(getText('ContextMenu_Read'), item,
-            startReadingLiteracyMag, player)
-        end
-    end
-end
-
-Events.OnFillInventoryObjectContextMenu.Add(LiteracyMagMenu)]]
-
 local old_checkXPBoost = CharacterCreationProfession.checkXPBoost
 
 function CharacterCreationProfession:checkXPBoost()
