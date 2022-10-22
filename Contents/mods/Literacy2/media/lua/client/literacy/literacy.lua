@@ -77,3 +77,7 @@ function Literacy.LevelPerk(character, perk)
     end
 end
 Events.LevelPerk.Add(Literacy.LevelPerk)
+
+function Literacy.PlayerHasReadBook(player, book)
+    return book:getModData()['AlreadyReadPlayers'] and book:getModData()['AlreadyReadPlayers'][Literacy.getIdentifier(player)]
+end

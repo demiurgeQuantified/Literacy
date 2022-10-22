@@ -109,7 +109,7 @@ end
 local old_isValid = ISReadABook.isValid
 
 function ISReadABook:isValid()
-    if self.item:getModData()['AlreadyReadPlayers'] and self.item:getModData()['AlreadyReadPlayers'][Literacy.getIdentifier(self.character)] then
+    if Literacy.PlayerHasReadBook(self.character, self.item) then
         self.character:Say(getText("IGUI_PlayerText_AlreadyRead"))
         return false
     end

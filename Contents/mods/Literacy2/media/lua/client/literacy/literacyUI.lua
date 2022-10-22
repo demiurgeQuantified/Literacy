@@ -80,3 +80,16 @@ function ISSkillProgressBar:updateTooltip(lvlSelected)
         self.message = self.message .. ' <LINE> ' .. getText('IGUI_XP_readingspeed', readingSpeed) .. '%'
     end
 end
+
+function Literacy.MarkReadBooks(inventoryPage, state)
+    if state == 'end' and inventoryPage.inventoryPane ~= nil then
+        local books = inventoryPage.inventoryPane.inventory:getAllType('Base.Book')
+        for i=0,books:size()-1 do
+            local book = books:get(i)
+            if Literacy.PlayerHasReadBook(getPlayer(), book) then
+                book:setName(book:getScriptItem():getDisplayName() .. getText('IGUI_ReadIndicator'))
+            end
+        end
+    end
+end
+Events.OnRefreshInventoryWindowContainers.Add(Literacy.MarkReadBooks)
