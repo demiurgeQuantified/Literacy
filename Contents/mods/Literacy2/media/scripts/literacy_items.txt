@@ -33,7 +33,7 @@ module Literacy
         LvlSkillTrained = 1,
         NumLevelsTrained = 2,
         StaticModel = Book,
-        WorldStaticModel = BookBrown_Ground,
+        WorldStaticModel = Book14_Ground,
 	}
 	item BookAiming2
 	{
@@ -47,7 +47,7 @@ module Literacy
         LvlSkillTrained = 3,
         NumLevelsTrained = 2,
         StaticModel = Book,
-        WorldStaticModel = BookBrown_Ground,
+        WorldStaticModel = Book14_Ground,
 	}
 	item BookAiming3
 	{
@@ -61,7 +61,7 @@ module Literacy
         LvlSkillTrained = 5,
         NumLevelsTrained = 2,
         StaticModel = Book,
-        WorldStaticModel = BookBrown_Ground,
+        WorldStaticModel = Book14_Ground,
 	}
 	item BookAiming4
 	{
@@ -75,7 +75,7 @@ module Literacy
         LvlSkillTrained = 7,
         NumLevelsTrained = 2,
         StaticModel = Book,
-        WorldStaticModel = BookBrown_Ground,
+        WorldStaticModel = Book14Closed_Ground,
 	}
 	item BookAiming5
 	{
@@ -89,7 +89,7 @@ module Literacy
         LvlSkillTrained = 9,
         NumLevelsTrained = 2,
         StaticModel = Book,
-        WorldStaticModel = BookBrown_Ground,
+        WorldStaticModel = Book14Closed_Ground,
 	}
 	item BookReloading1
 	{
@@ -103,7 +103,7 @@ module Literacy
         LvlSkillTrained = 1,
         NumLevelsTrained = 2,
         StaticModel = Book,
-        WorldStaticModel = BookBrown_Ground,
+        WorldStaticModel = Book16_Ground,
 	}
 	item BookReloading2
 	{
@@ -117,7 +117,7 @@ module Literacy
         LvlSkillTrained = 3,
         NumLevelsTrained = 2,
         StaticModel = Book,
-        WorldStaticModel = BookBrown_Ground,
+        WorldStaticModel = Book16_Ground,
 	}
 	item BookReloading3
 	{
@@ -131,7 +131,7 @@ module Literacy
         LvlSkillTrained = 5,
         NumLevelsTrained = 2,
         StaticModel = Book,
-        WorldStaticModel = BookBrown_Ground,
+        WorldStaticModel = Book16_Ground,
 	}
 	item BookReloading4
 	{
@@ -145,7 +145,7 @@ module Literacy
         LvlSkillTrained = 7,
         NumLevelsTrained = 2,
         StaticModel = Book,
-        WorldStaticModel = BookBrown_Ground,
+        WorldStaticModel = Book16Closed_Ground,
 	}
 	item BookReloading5
 	{
@@ -159,7 +159,7 @@ module Literacy
         LvlSkillTrained = 9,
         NumLevelsTrained = 2,
         StaticModel = Book,
-        WorldStaticModel = BookBrown_Ground,
+        WorldStaticModel = Book16Closed_Ground,
 	}
 	item BookStrength1
 	{
@@ -173,7 +173,7 @@ module Literacy
         LvlSkillTrained = 1,
         NumLevelsTrained = 2,
         StaticModel = Book,
-        WorldStaticModel = BookBrown_Ground,
+        WorldStaticModel = Book25_Ground,
 	}
 	item BookStrength2
 	{
@@ -187,7 +187,7 @@ module Literacy
         LvlSkillTrained = 3,
         NumLevelsTrained = 2,
         StaticModel = Book,
-        WorldStaticModel = BookBrown_Ground,
+        WorldStaticModel = Book25_Ground,
 	}
 	item BookStrength3
 	{
@@ -201,7 +201,7 @@ module Literacy
         LvlSkillTrained = 5,
         NumLevelsTrained = 2,
         StaticModel = Book,
-        WorldStaticModel = BookBrown_Ground,
+        WorldStaticModel = Book25_Ground,
 	}
 	item BookStrength4
 	{
@@ -215,7 +215,7 @@ module Literacy
         LvlSkillTrained = 7,
         NumLevelsTrained = 2,
         StaticModel = Book,
-        WorldStaticModel = BookBrown_Ground,
+        WorldStaticModel = Book25Closed_Ground,
 	}
 	item BookStrength5
 	{
@@ -229,7 +229,7 @@ module Literacy
         LvlSkillTrained = 9,
         NumLevelsTrained = 2,
         StaticModel = Book,
-        WorldStaticModel = BookBrown_Ground,
+        WorldStaticModel = Book25Closed_Ground,
 	}
 	item BookFitness1
 	{
@@ -243,7 +243,7 @@ module Literacy
         LvlSkillTrained = 1,
         NumLevelsTrained = 2,
         StaticModel = Book,
-        WorldStaticModel = BookBrown_Ground,
+        WorldStaticModel = Book22_Ground,
 	}
 	item BookFitness2
 	{
@@ -257,7 +257,7 @@ module Literacy
         LvlSkillTrained = 3,
         NumLevelsTrained = 2,
         StaticModel = Book,
-        WorldStaticModel = BookBrown_Ground,
+        WorldStaticModel = Book22_Ground,
 	}
 	item BookFitness3
 	{
@@ -271,7 +271,7 @@ module Literacy
         LvlSkillTrained = 5,
         NumLevelsTrained = 2,
         StaticModel = Book,
-        WorldStaticModel = BookBrown_Ground,
+        WorldStaticModel = Book22_Ground,
 	}
 	item BookFitness4
 	{
@@ -285,7 +285,7 @@ module Literacy
         LvlSkillTrained = 7,
         NumLevelsTrained = 2,
         StaticModel = Book,
-        WorldStaticModel = BookBrown_Ground,
+        WorldStaticModel = Book22Closed_Ground,
 	}
 	item BookFitness5
 	{
@@ -299,7 +299,7 @@ module Literacy
         LvlSkillTrained = 9,
         NumLevelsTrained = 2,
         StaticModel = Book,
-        WorldStaticModel = BookBrown_Ground,
+        WorldStaticModel = Book22Closed_Ground,
 	}
 	item BookLightfoot1
 	{
@@ -313,7 +313,7 @@ module Literacy
         LvlSkillTrained = 1,
         NumLevelsTrained = 2,
         StaticModel = Book,
-        WorldStaticModel = BookBrown_Ground,
+        WorldStaticModel = Book15_Ground,
 	}
 	item BookLightfoot2
 	{
@@ -327,7 +327,7 @@ module Literacy
         LvlSkillTrained = 3,
         NumLevelsTrained = 2,
         StaticModel = Book,
-        WorldStaticModel = BookBrown_Ground,
+        WorldStaticModel = Book15_Ground,
 	}
 	item BookLightfoot3
 	{
@@ -341,7 +341,7 @@ module Literacy
         LvlSkillTrained = 5,
         NumLevelsTrained = 2,
         StaticModel = Book,
-        WorldStaticModel = BookBrown_Ground,
+        WorldStaticModel = Book15_Ground,
 	}
 	item BookLightfoot4
 	{
@@ -355,7 +355,7 @@ module Literacy
         LvlSkillTrained = 7,
         NumLevelsTrained = 2,
         StaticModel = Book,
-        WorldStaticModel = BookBrown_Ground,
+        WorldStaticModel = Book15Closed_Ground,
 	}
 	item BookLightfoot5
 	{
@@ -369,7 +369,7 @@ module Literacy
         LvlSkillTrained = 9,
         NumLevelsTrained = 2,
         StaticModel = Book,
-        WorldStaticModel = BookBrown_Ground,
+        WorldStaticModel = Book15Closed_Ground,
 	}
 	item BookSprinting1
 	{
@@ -383,7 +383,7 @@ module Literacy
         LvlSkillTrained = 1,
         NumLevelsTrained = 2,
         StaticModel = Book,
-        WorldStaticModel = BookBrown_Ground,
+        WorldStaticModel = Book12_Ground,
 	}
 	item BookSprinting2
 	{
@@ -397,7 +397,7 @@ module Literacy
         LvlSkillTrained = 3,
         NumLevelsTrained = 2,
         StaticModel = Book,
-        WorldStaticModel = BookBrown_Ground,
+        WorldStaticModel = Book12_Ground,
 	}
 	item BookSprinting3
 	{
@@ -411,7 +411,7 @@ module Literacy
         LvlSkillTrained = 5,
         NumLevelsTrained = 2,
         StaticModel = Book,
-        WorldStaticModel = BookBrown_Ground,
+        WorldStaticModel = Book12_Ground,
 	}
 	item BookSprinting4
 	{
@@ -425,7 +425,7 @@ module Literacy
         LvlSkillTrained = 7,
         NumLevelsTrained = 2,
         StaticModel = Book,
-        WorldStaticModel = BookBrown_Ground,
+        WorldStaticModel = Book12Closed_Ground,
 	}
 	item BookSprinting5
 	{
@@ -439,7 +439,7 @@ module Literacy
         LvlSkillTrained = 9,
         NumLevelsTrained = 2,
         StaticModel = Book,
-        WorldStaticModel = BookBrown_Ground,
+        WorldStaticModel = Book12Closed_Ground,
 	}
     item BookSneak1
 	{
@@ -453,7 +453,7 @@ module Literacy
         LvlSkillTrained = 1,
         NumLevelsTrained = 2,
         StaticModel = Book,
-        WorldStaticModel = BookBrown_Ground,
+        WorldStaticModel = Book23_Ground,
 	}
 	item BookSneak2
 	{
@@ -467,7 +467,7 @@ module Literacy
         LvlSkillTrained = 3,
         NumLevelsTrained = 2,
         StaticModel = Book,
-        WorldStaticModel = BookBrown_Ground,
+        WorldStaticModel = Book23_Ground,
 	}
 	item BookSneak3
 	{
@@ -481,7 +481,7 @@ module Literacy
         LvlSkillTrained = 5,
         NumLevelsTrained = 2,
         StaticModel = Book,
-        WorldStaticModel = BookBrown_Ground,
+        WorldStaticModel = Book23_Ground,
 	}
 	item BookSneak4
 	{
@@ -495,7 +495,7 @@ module Literacy
         LvlSkillTrained = 7,
         NumLevelsTrained = 2,
         StaticModel = Book,
-        WorldStaticModel = BookBrown_Ground,
+        WorldStaticModel = Book23Closed_Ground,
 	}
 	item BookSneak5
 	{
@@ -509,7 +509,7 @@ module Literacy
         LvlSkillTrained = 9,
         NumLevelsTrained = 2,
         StaticModel = Book,
-        WorldStaticModel = BookBrown_Ground,
+        WorldStaticModel = Book23Closed_Ground,
 	}
 	item BookNimble1
 	{
@@ -523,7 +523,7 @@ module Literacy
         LvlSkillTrained = 1,
         NumLevelsTrained = 2,
         StaticModel = Book,
-        WorldStaticModel = BookBrown_Ground,
+        WorldStaticModel = Book13_Ground,
 	}
 	item BookNimble2
 	{
@@ -537,7 +537,7 @@ module Literacy
         LvlSkillTrained = 3,
         NumLevelsTrained = 2,
         StaticModel = Book,
-        WorldStaticModel = BookBrown_Ground,
+        WorldStaticModel = Book13_Ground,
 	}
 	item BookNimble3
 	{
@@ -551,7 +551,7 @@ module Literacy
         LvlSkillTrained = 5,
         NumLevelsTrained = 2,
         StaticModel = Book,
-        WorldStaticModel = BookBrown_Ground,
+        WorldStaticModel = Book13_Ground,
 	}
 	item BookNimble4
 	{
@@ -565,7 +565,7 @@ module Literacy
         LvlSkillTrained = 7,
         NumLevelsTrained = 2,
         StaticModel = Book,
-        WorldStaticModel = BookBrown_Ground,
+        WorldStaticModel = Book13Closed_Ground,
 	}
 	item BookNimble5
 	{
@@ -579,7 +579,7 @@ module Literacy
         LvlSkillTrained = 9,
         NumLevelsTrained = 2,
         StaticModel = Book,
-        WorldStaticModel = BookBrown_Ground,
+        WorldStaticModel = Book13Closed_Ground,
 	}
   	item BookMaintenance1
 	{
@@ -593,7 +593,7 @@ module Literacy
         LvlSkillTrained = 1,
         NumLevelsTrained = 2,
         StaticModel = Book,
-        WorldStaticModel = BookBrown_Ground,
+        WorldStaticModel = Book18_Ground,
 	}
 	item BookMaintenance2
 	{
@@ -607,7 +607,7 @@ module Literacy
         LvlSkillTrained = 3,
         NumLevelsTrained = 2,
         StaticModel = Book,
-        WorldStaticModel = BookBrown_Ground,
+        WorldStaticModel = Book18_Ground,
 	}
 	item BookMaintenance3
 	{
@@ -621,7 +621,7 @@ module Literacy
         LvlSkillTrained = 5,
         NumLevelsTrained = 2,
         StaticModel = Book,
-        WorldStaticModel = BookBrown_Ground,
+        WorldStaticModel = Book18_Ground,
 	}
 	item BookMaintenance4
 	{
@@ -635,7 +635,7 @@ module Literacy
         LvlSkillTrained = 7,
         NumLevelsTrained = 2,
         StaticModel = Book,
-        WorldStaticModel = BookBrown_Ground,
+        WorldStaticModel = Book18Closed_Ground,
 	}
 	item BookMaintenance5
 	{
@@ -649,7 +649,7 @@ module Literacy
         LvlSkillTrained = 9,
         NumLevelsTrained = 2,
         StaticModel = Book,
-        WorldStaticModel = BookBrown_Ground,
+        WorldStaticModel = Book18Closed_Ground,
 	}
   	item BookAxe1
 	{
@@ -663,7 +663,7 @@ module Literacy
         LvlSkillTrained = 1,
         NumLevelsTrained = 2,
         StaticModel = Book,
-        WorldStaticModel = BookBrown_Ground,
+        WorldStaticModel = Book19_Ground,
 	}
 	item BookAxe2
 	{
@@ -677,7 +677,7 @@ module Literacy
         LvlSkillTrained = 3,
         NumLevelsTrained = 2,
         StaticModel = Book,
-        WorldStaticModel = BookBrown_Ground,
+        WorldStaticModel = Book19_Ground,
 	}
 	item BookAxe3
 	{
@@ -691,7 +691,7 @@ module Literacy
         LvlSkillTrained = 5,
         NumLevelsTrained = 2,
         StaticModel = Book,
-        WorldStaticModel = BookBrown_Ground,
+        WorldStaticModel = Book19_Ground,
 	}
 	item BookAxe4
 	{
@@ -705,7 +705,7 @@ module Literacy
         LvlSkillTrained = 7,
         NumLevelsTrained = 2,
         StaticModel = Book,
-        WorldStaticModel = BookBrown_Ground,
+        WorldStaticModel = Book19Closed_Ground,
 	}
 	item BookAxe5
 	{
@@ -719,7 +719,7 @@ module Literacy
         LvlSkillTrained = 9,
         NumLevelsTrained = 2,
         StaticModel = Book,
-        WorldStaticModel = BookBrown_Ground,
+        WorldStaticModel = Book19Closed_Ground,
 	}
   	item BookSmallBlunt1
 	{
@@ -733,7 +733,7 @@ module Literacy
         LvlSkillTrained = 1,
         NumLevelsTrained = 2,
         StaticModel = Book,
-        WorldStaticModel = BookBrown_Ground,
+        WorldStaticModel = Book26_Ground,
 	}
 	item BookSmallBlunt2
 	{
@@ -747,7 +747,7 @@ module Literacy
         LvlSkillTrained = 3,
         NumLevelsTrained = 2,
         StaticModel = Book,
-        WorldStaticModel = BookBrown_Ground,
+        WorldStaticModel = Book26_Ground,
 	}
 	item BookSmallBlunt3
 	{
@@ -761,7 +761,7 @@ module Literacy
         LvlSkillTrained = 5,
         NumLevelsTrained = 2,
         StaticModel = Book,
-        WorldStaticModel = BookBrown_Ground,
+        WorldStaticModel = Book26_Ground,
 	}
 	item BookSmallBlunt4
 	{
@@ -775,7 +775,7 @@ module Literacy
         LvlSkillTrained = 7,
         NumLevelsTrained = 2,
         StaticModel = Book,
-        WorldStaticModel = BookBrown_Ground,
+        WorldStaticModel = Book26Closed_Ground,
 	}
 	item BookSmallBlunt5
 	{
@@ -789,7 +789,7 @@ module Literacy
         LvlSkillTrained = 9,
         NumLevelsTrained = 2,
         StaticModel = Book,
-        WorldStaticModel = BookBrown_Ground,
+        WorldStaticModel = Book26Closed_Ground,
 	}
   	item BookBlunt1
 	{
@@ -803,7 +803,7 @@ module Literacy
         LvlSkillTrained = 1,
         NumLevelsTrained = 2,
         StaticModel = Book,
-        WorldStaticModel = BookBrown_Ground,
+        WorldStaticModel = Book17_Ground,
 	}
 	item BookBlunt2
 	{
@@ -817,7 +817,7 @@ module Literacy
         LvlSkillTrained = 3,
         NumLevelsTrained = 2,
         StaticModel = Book,
-        WorldStaticModel = BookBrown_Ground,
+        WorldStaticModel = Book17_Ground,
 	}
 	item BookBlunt3
 	{
@@ -831,7 +831,7 @@ module Literacy
         LvlSkillTrained = 5,
         NumLevelsTrained = 2,
         StaticModel = Book,
-        WorldStaticModel = BookBrown_Ground,
+        WorldStaticModel = Book17_Ground,
 	}
 	item BookBlunt4
 	{
@@ -845,7 +845,7 @@ module Literacy
         LvlSkillTrained = 7,
         NumLevelsTrained = 2,
         StaticModel = Book,
-        WorldStaticModel = BookBrown_Ground,
+        WorldStaticModel = Book17Closed_Ground,
 	}
 	item BookBlunt5
 	{
@@ -859,7 +859,7 @@ module Literacy
         LvlSkillTrained = 9,
         NumLevelsTrained = 2,
         StaticModel = Book,
-        WorldStaticModel = BookBrown_Ground,
+        WorldStaticModel = Book17Closed_Ground,
 	}
   	item BookSmallBlade1
 	{
@@ -873,7 +873,7 @@ module Literacy
         LvlSkillTrained = 1,
         NumLevelsTrained = 2,
         StaticModel = Book,
-        WorldStaticModel = BookBrown_Ground,
+        WorldStaticModel = Book20_Ground,
 	}
 	item BookSmallBlade2
 	{
@@ -887,7 +887,7 @@ module Literacy
         LvlSkillTrained = 3,
         NumLevelsTrained = 2,
         StaticModel = Book,
-        WorldStaticModel = BookBrown_Ground,
+        WorldStaticModel = Book20_Ground,
 	}
 	item BookSmallBlade3
 	{
@@ -901,7 +901,7 @@ module Literacy
         LvlSkillTrained = 5,
         NumLevelsTrained = 2,
         StaticModel = Book,
-        WorldStaticModel = BookBrown_Ground,
+        WorldStaticModel = Book20_Ground,
 	}
 	item BookSmallBlade4
 	{
@@ -915,7 +915,7 @@ module Literacy
         LvlSkillTrained = 7,
         NumLevelsTrained = 2,
         StaticModel = Book,
-        WorldStaticModel = BookBrown_Ground,
+        WorldStaticModel = Book20Closed_Ground,
 	}
 	item BookSmallBlade5
 	{
@@ -929,7 +929,7 @@ module Literacy
         LvlSkillTrained = 9,
         NumLevelsTrained = 2,
         StaticModel = Book,
-        WorldStaticModel = BookBrown_Ground,
+        WorldStaticModel = Book20Closed_Ground,
 	}
   	item BookLongBlade1
 	{
@@ -943,7 +943,7 @@ module Literacy
         LvlSkillTrained = 1,
         NumLevelsTrained = 2,
         StaticModel = Book,
-        WorldStaticModel = BookBrown_Ground,
+        WorldStaticModel = Book21_Ground,
 	}
 	item BookLongBlade2
 	{
@@ -957,7 +957,7 @@ module Literacy
         LvlSkillTrained = 3,
         NumLevelsTrained = 2,
         StaticModel = Book,
-        WorldStaticModel = BookBrown_Ground,
+        WorldStaticModel = Book21_Ground,
 	}
 	item BookLongBlade3
 	{
@@ -971,7 +971,7 @@ module Literacy
         LvlSkillTrained = 5,
         NumLevelsTrained = 2,
         StaticModel = Book,
-        WorldStaticModel = BookBrown_Ground,
+        WorldStaticModel = Book21_Ground,
 	}
 	item BookLongBlade4
 	{
@@ -985,7 +985,7 @@ module Literacy
         LvlSkillTrained = 7,
         NumLevelsTrained = 2,
         StaticModel = Book,
-        WorldStaticModel = BookBrown_Ground,
+        WorldStaticModel = Book21Closed_Ground,
 	}
 	item BookLongBlade5
 	{
@@ -999,7 +999,7 @@ module Literacy
         LvlSkillTrained = 9,
         NumLevelsTrained = 2,
         StaticModel = Book,
-        WorldStaticModel = BookBrown_Ground,
+        WorldStaticModel = Book21Closed_Ground,
 	}
   	item BookSpear1
 	{
@@ -1013,7 +1013,7 @@ module Literacy
         LvlSkillTrained = 1,
         NumLevelsTrained = 2,
         StaticModel = Book,
-        WorldStaticModel = BookBrown_Ground,
+        WorldStaticModel = Book24_Ground,
 	}
 	item BookSpear2
 	{
@@ -1027,7 +1027,7 @@ module Literacy
         LvlSkillTrained = 3,
         NumLevelsTrained = 2,
         StaticModel = Book,
-        WorldStaticModel = BookBrown_Ground,
+        WorldStaticModel = Book24_Ground,
 	}
 	item BookSpear3
 	{
@@ -1041,7 +1041,7 @@ module Literacy
         LvlSkillTrained = 5,
         NumLevelsTrained = 2,
         StaticModel = Book,
-        WorldStaticModel = BookBrown_Ground,
+        WorldStaticModel = Book24_Ground,
 	}
 	item BookSpear4
 	{
@@ -1055,7 +1055,7 @@ module Literacy
         LvlSkillTrained = 7,
         NumLevelsTrained = 2,
         StaticModel = Book,
-        WorldStaticModel = BookBrown_Ground,
+        WorldStaticModel = Book24Closed_Ground,
 	}
 	item BookSpear5
 	{
@@ -1069,6 +1069,6 @@ module Literacy
         LvlSkillTrained = 9,
         NumLevelsTrained = 2,
         StaticModel = Book,
-        WorldStaticModel = BookBrown_Ground,
+        WorldStaticModel = Book24Closed_Ground,
 	}
 }
