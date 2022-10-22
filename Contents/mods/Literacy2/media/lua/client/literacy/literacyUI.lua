@@ -67,7 +67,6 @@ function CharacterCreationProfession:drawXpBoostMap(y, item, alt)
     end
 end
 
-local TraitModifiers = {0, 0.5, 1}
 local old_updateTooltip = ISSkillProgressBar.updateTooltip
 
 function ISSkillProgressBar:updateTooltip(lvlSelected)
