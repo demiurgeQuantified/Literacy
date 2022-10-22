@@ -113,7 +113,12 @@ local old_isValid = ISReadABook.isValid
 
 function ISReadABook:isValid()
     if Literacy.PlayerHasReadBook(self.character, self.item) or self.character:getAlreadyReadBook():contains(self.item:getFullType()) then
-        self.character:Say(getText("IGUI_PlayerText_AlreadyRead"))
+        local rand = ZombRand(1, 3)
+        if rand == 1 then
+            self.character:Say(getText("IGUI_PlayerText_AlreadyRead"))
+        else
+            self.character:Say(getText("IGUI_PlayerText_AlreadyRead2"))
+        end
         return false
     end
 
