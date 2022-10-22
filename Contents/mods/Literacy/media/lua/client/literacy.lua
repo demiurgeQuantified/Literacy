@@ -126,6 +126,10 @@ end
 local old_isValid = ISReadABook.isValid
 
 function ISReadABook:isValid()
+    if self.character:getAlreadyReadBook():contains(self.item:getFullType()) then
+        return false
+    end
+    
     ISReadABook.checkMultiplier(self)
     return old_isValid(self)
 end
