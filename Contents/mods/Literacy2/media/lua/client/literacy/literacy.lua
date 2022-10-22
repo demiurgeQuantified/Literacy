@@ -147,7 +147,7 @@ end
 local old_isValid = ISReadABook.isValid
 
 function ISReadABook:isValid()
-    if not character:isSitOnGround() and SandboxVars.Literacy.StandingReadingSpeed == 0 and not self.character:getVehicle() then
+    if not self.character:isSitOnGround() and SandboxVars.Literacy.StandingReadingSpeed == 0 and not self.character:getVehicle() then
         self.character:Say(getText("IGUI_PlayerText_CantReadStanding"))
         return false
     end
