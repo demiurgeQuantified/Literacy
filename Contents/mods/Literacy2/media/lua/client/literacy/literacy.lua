@@ -138,7 +138,7 @@ local old_perform = ISReadABook.perform
 function ISReadABook:perform()
     if self.stats then
         local modData = self.item:getModData()
-        local XPReward = modData['XPReward'] or 5
+        local XPReward = modData['XPReward'] or 3
         self.character:getXp():AddXP(Perks.Reading, (XPReward * 4) * SandboxVars.Literacy.XPMultiplier)
     end
     old_perform(self)
