@@ -1,4 +1,9 @@
 module Literacy {
+    model Book12
+    {
+        mesh = Book,
+        texture = WorldItems/Book12,
+    }
     model Book12_Ground
     {
         mesh = WorldItems/Book,
@@ -10,6 +15,11 @@ module Literacy {
         mesh = WorldItems/BookClosed,
         texture = WorldItems/Book12,
         scale = 0.4,
+    }
+    model Book13
+    {
+        mesh = Book,
+        texture = WorldItems/Book13,
     }
     model Book13_Ground
     {
@@ -23,6 +33,11 @@ module Literacy {
         texture = WorldItems/Book13,
         scale = 0.4,
     }
+    model Book14
+    {
+        mesh = Book,
+        texture = WorldItems/Book14,
+    }
     model Book14_Ground
     {
         mesh = WorldItems/Book,
@@ -34,6 +49,11 @@ module Literacy {
         mesh = WorldItems/BookClosed,
         texture = WorldItems/Book14,
         scale = 0.4,
+    }
+    model Book15
+    {
+        mesh = Book,
+        texture = WorldItems/Book15,
     }
     model Book15_Ground
     {
@@ -47,6 +67,11 @@ module Literacy {
         texture = WorldItems/Book15,
         scale = 0.4,
     }
+    model Book16
+    {
+        mesh = Book,
+        texture = WorldItems/Book16,
+    }
     model Book16_Ground
     {
         mesh = WorldItems/Book,
@@ -58,6 +83,11 @@ module Literacy {
         mesh = WorldItems/BookClosed,
         texture = WorldItems/Book16,
         scale = 0.4,
+    }
+    model Book17
+    {
+        mesh = Book,
+        texture = WorldItems/Book17,
     }
     model Book17_Ground
     {
@@ -71,6 +101,11 @@ module Literacy {
         texture = WorldItems/Book17,
         scale = 0.4,
     }
+    model Book18
+    {
+        mesh = Book,
+        texture = WorldItems/Book18,
+    }
     model Book18_Ground
     {
         mesh = WorldItems/Book,
@@ -82,6 +117,11 @@ module Literacy {
         mesh = WorldItems/BookClosed,
         texture = WorldItems/Book18,
         scale = 0.4,
+    }
+    model Book19
+    {
+        mesh = Book,
+        texture = WorldItems/Book19,
     }
     model Book19_Ground
     {
@@ -95,6 +135,11 @@ module Literacy {
         texture = WorldItems/Book19,
         scale = 0.4,
     }
+    model Book20
+    {
+        mesh = Book,
+        texture = WorldItems/Book20,
+    }
     model Book20_Ground
     {
         mesh = WorldItems/Book,
@@ -106,6 +151,11 @@ module Literacy {
         mesh = WorldItems/BookClosed,
         texture = WorldItems/Book20,
         scale = 0.4,
+    }
+    model Book21
+    {
+        mesh = Book,
+        texture = WorldItems/Book21,
     }
     model Book21_Ground
     {
@@ -119,6 +169,11 @@ module Literacy {
         texture = WorldItems/Book21,
         scale = 0.4,
     }
+    model Book22
+    {
+        mesh = Book,
+        texture = WorldItems/Book22,
+    }
     model Book22_Ground
     {
         mesh = WorldItems/Book,
@@ -130,6 +185,11 @@ module Literacy {
         mesh = WorldItems/BookClosed,
         texture = WorldItems/Book22,
         scale = 0.4,
+    }
+    model Book23
+    {
+        mesh = Book,
+        texture = WorldItems/Book23,
     }
     model Book23_Ground
     {
@@ -143,6 +203,11 @@ module Literacy {
         texture = WorldItems/Book23,
         scale = 0.4,
     }
+    model Book24
+    {
+        mesh = Book,
+        texture = WorldItems/Book24,
+    }
     model Book24_Ground
     {
         mesh = WorldItems/Book,
@@ -155,6 +220,11 @@ module Literacy {
         texture = WorldItems/Book24,
         scale = 0.4,
     }
+    model Book25
+    {
+        mesh = Book,
+        texture = WorldItems/Book25,
+    }
     model Book25_Ground
     {
         mesh = WorldItems/Book,
@@ -166,6 +236,11 @@ module Literacy {
         mesh = WorldItems/BookClosed,
         texture = WorldItems/Book25,
         scale = 0.4,
+    }
+    model Book26
+    {
+        mesh = Book,
+        texture = WorldItems/Book26,
     }
     model Book26_Ground
     {
