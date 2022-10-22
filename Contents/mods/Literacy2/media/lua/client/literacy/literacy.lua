@@ -104,7 +104,7 @@ function ISReadABook:new(character, item, time)
     time = time / SandboxVars.Literacy.OverallSpeedMultiplier
 
     if not character:isSitOnGround() then
-        time = time * SandboxVars.Literacy.StandingReadingSpeed
+        time = time / SandboxVars.Literacy.StandingReadingSpeed
     end
     
     o.maxTime = time
