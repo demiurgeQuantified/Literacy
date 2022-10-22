@@ -17,7 +17,7 @@
 ]]
 Literacy = Literacy or {}
 
-local function setInitialLiteracy()
+function Literacy.setInitialLiteracy()
     local player = getPlayer()
     if player:getModData().LiteracySetUp == nil then
 
@@ -40,7 +40,7 @@ local function setInitialLiteracy()
         player:getModData().LiteracySetUp = 1
     end
 end
-Events.OnCreatePlayer.Add(setInitialLiteracy)
+Events.OnCreatePlayer.Add(Literacy.setInitialLiteracy)
 
 function Literacy.calculateReadingSpeed(character)
     local readingSpeed = character:getPerkLevel(Perks.Reading)
@@ -65,7 +65,7 @@ function Literacy.calculateReadingSpeed(character)
     return readingSpeed
 end
 
-local function LevelPerk(character, perk)
+function Literacy.LevelPerk(character, perk)
     if perk == Perks.Reading then
         local queue = ISTimedActionQueue.getTimedActionQueue(character)
         if not queue.current then return end
@@ -76,4 +76,4 @@ local function LevelPerk(character, perk)
         end
     end
 end
-Events.LevelPerk.Add(LevelPerk)
+Events.LevelPerk.Add(Literacy.LevelPerk)

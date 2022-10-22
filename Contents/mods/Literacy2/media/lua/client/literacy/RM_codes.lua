@@ -15,9 +15,10 @@
 
     For any questions, contact me through steam or on Discord - albion#0123
 ]]
+Literacy = Literacy or {}
 local mults = {3,5,8,12,16}
 
-local function handleLiteracyVHS(_guid, code)
+function Literacy.handleLiteracyVHS(_guid, code)
     if not code then return end
     player = getPlayer()
     if player:isAsleep() then return end
@@ -53,4 +54,4 @@ local function handleLiteracyVHS(_guid, code)
         end
     end
 end
-Events.OnDeviceText.Add(handleLiteracyVHS)
+Events.OnDeviceText.Add(Literacy.handleLiteracyVHS)
