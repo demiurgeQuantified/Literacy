@@ -1,0 +1,22 @@
+version=1
+id=2812583527
+title=Literacy Mod 2.0 - Learn to Read, Read Faster
+description=[h1]Learn to Read![/h1]
+description=With this mod, your reading speed is affected by your literacy level, which you can increase by reading books. Even illiterate characters can learn to read by finding the rare 'Learn to Read!' magazine, but their reading speed will be extremely slow as they catch up, and they will still suffer from permanent downsides. This offers an immersive way to increase the often complained about speed at which characters read.
+description=[h1]New Trait[/h1]
+description=In exchange for +2 points, Poor Reader offers a slightly reduced XP multiplier from skill books.
+description=[h1]Trait Changes[/h1]
+description=The Fast Reader meta is over! Fast reader now offers +1 reading skill and a permanent 10% speed increase, as opposed to the vanilla 30%. While this is the same to start off, the direct impact of Fast Reader is much lower, changing its level of utility to much closer match its low -2 cost. Slow Reader does the opposite, making it now a reasonable way to save points at character creation. Both still have a meaningful permanent impact on the character, but match their costs more closely. Illiterate characters can learn to read using the extremely rare 'Learn to Read!' magazine, making the trait slightly less impactful on long runs, while still earning its +8 points.
+description=[h1]Expanded Skill Books[/h1]
+description=This mod includes skill books for every vanilla skill, including passives. There are no skill books for reading, but it naturally levels up faster than most skills to compensate.
+description=[h1]Full Customisation[/h1]
+description=Still reading too slow? Don't want the new skill books, or already have a mod that adds them? This mod offers sandbox variables to ensure that everyone's ideal Zomboid experience can be realised.
+description=[h1]Mod Compatibility[/h1]
+description=This mod does not replace any vanilla functions, so it should be compatible with any other well written mod, even if it also modifies reading mechanics. You will also gain XP for any modded books and readables.
+description=[h1]Translation Credits[/h1]
+description=Turkish translation by [url=https://steamcommunity.com/profiles/76561198200571375]recep ivedik[/url]
+description=
+description=If you enjoy my mods, I'd appreciate it a lot if you considered leaving me a tip ^u^
+description=[url=https://ko-fi.com/starseamstress][img]https://storage.ko-fi.com/cdn/brandasset/kofi_button_dark.png[/img][/url]
+tags=Build 41;Balance;Interface;Items;Literature;Misc;Multiplayer;Traits
+visibility=public
