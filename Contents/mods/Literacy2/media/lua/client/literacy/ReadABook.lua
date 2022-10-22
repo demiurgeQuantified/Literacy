@@ -103,7 +103,7 @@ function ISReadABook:perform()
         if SandboxVars.Literacy.DontDestroyStatBooks and not Literacy.IsRecipeBook(self.item) then
             if not modData['AlreadyReadPlayers'] then modData['AlreadyReadPlayers'] = {} end
             modData['AlreadyReadPlayers'][Literacy.getIdentifier(self.character)] = true
-            self.item:setName(self.item:getScriptItem():getDisplayName() .. getText('IGUI_ReadIndicator'))
+            Literacy.addReadSuffix(self.item)
         end
     end
     old_perform(self)

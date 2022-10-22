@@ -15,6 +15,23 @@
 
     For any questions, contact me through steam or on Discord - albion#0123
 ]]
+Literacy = Literacy or {}
+
+function Literacy.addReadSuffix(item)
+    local suffix = getTextOrNull('IGUI_ReadIndicator')
+    if not suffix then return end -- better to just not run this on unsupported languages
+    
+    if Literacy.PlayerHasReadBook(getPlayer(), item) then
+        if not luautils.stringEnds(item:getName(), suffix) then
+            item:setName(item:getName() .. suffix)
+        end
+    else
+        if luautils.stringEnds(item:getName(), suffix) then
+            item:setName(string.sub(item:getName(), 1, -#suffix))
+        end
+    end
+end
+
 local old_checkXPBoost = CharacterCreationProfession.checkXPBoost
 
 function CharacterCreationProfession:checkXPBoost()
@@ -86,9 +103,7 @@ function Literacy.MarkReadBooks(inventoryPage, state)
         local books = inventoryPage.inventoryPane.inventory:getAllCategory('Literature')
         for i=0,books:size()-1 do
             local book = books:get(i)
-            if Literacy.PlayerHasReadBook(getPlayer(), book) then
-                book:setName(book:getScriptItem():getDisplayName() .. getText('IGUI_ReadIndicator'))
-            end
+            Literacy.addReadSuffix(book)
         end
     end
 end
