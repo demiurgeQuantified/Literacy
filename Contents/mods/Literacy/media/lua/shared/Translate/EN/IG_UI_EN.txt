@@ -6,4 +6,9 @@ IGUI_EN = {
     IGUI_PlayerText_AlreadyRead = "I've already read this one...",
     IGUI_PlayerText_AlreadyRead2 = "I don't want to read that again.",
     IGUI_ReadIndicator = " (Read)",
+    IGUI_BookName_1 = "%1 Vol. 1",
+    IGUI_BookName_2 = "%1 Vol. 2",
+    IGUI_BookName_3 = "%1 Vol. 3",
+    IGUI_BookName_4 = "%1 Vol. 4",
+    IGUI_BookName_5 = "%1 Vol. 5",
 }

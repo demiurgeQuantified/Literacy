@@ -1,0 +1,7 @@
+IG_UI_CH = {
+    IGUI_BookName_1 = "%1 第 1 集 - 入門",
+    IGUI_BookName_2 = "%1 第 2 集 - 中級",
+    IGUI_BookName_3 = "%1 第 3 集 - 進階",
+    IGUI_BookName_4 = "%1 第 4 集 - 專家",
+    IGUI_BookName_5 = "%1 第 5 集 - 大師",
+}

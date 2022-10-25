@@ -115,18 +115,17 @@ function ISReadABook:isValid()
         local line = nil
         local rand = ZombRand(1, 3)
         if rand == 1 then
-            line = getTextOrNull("IGUI_PlayerText_AlreadyRead")
+            line = getText("IGUI_PlayerText_AlreadyRead")
         else
-            line = getTextOrNull("IGUI_PlayerText_AlreadyRead2")
+            line = getText("IGUI_PlayerText_AlreadyRead2")
         end
-        if line then self.character:Say(line) end
+        self.character:Say(line)
 
         return false
     end
 
     if not self.character:isSitOnGround() and SandboxVars.Literacy.StandingReadingSpeed == 0 and not self.character:getVehicle() then
-        local line = getTextOrNull("IGUI_PlayerText_CantReadStanding")
-        if line then self.character:Say(line) end
+        self.character:Say(getText("IGUI_PlayerText_CantReadStanding"))
         return false
     end
     

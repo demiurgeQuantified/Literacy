@@ -15,16 +15,16 @@
 
     For any questions, contact me through steam or on Discord - albion#0123
 ]]
-local skills = {'Reading', 'Reloading', 'Aiming', 'Strength', 'Fitness', 'Nimble', 'Sprinting', 'Sneak', 'Lightfoot', 'Maintenance', 'Axe', 'SmallBlunt', 'Blunt', 'SmallBlade', 'LongBlade', 'Spear'}
+do
+    local skills = {'Reading', 'Reloading', 'Aiming', 'Strength', 'Fitness', 'Nimble', 'Sprinting', 'Sneak', 'Lightfoot', 'Maintenance', 'Axe', 'SmallBlunt', 'Blunt', 'SmallBlade', 'LongBlade', 'Spear'}
 
-for _,skill in ipairs(skills) do
-    SkillBook[skill] = {}
-    SkillBook[skill].perk = Perks[skill]
-    SkillBook[skill].maxMultiplier1 = 3
-    SkillBook[skill].maxMultiplier2 = 5
-    SkillBook[skill].maxMultiplier3 = 8
-    SkillBook[skill].maxMultiplier4 = 12
-    SkillBook[skill].maxMultiplier5 = 16
+    for _,skill in ipairs(skills) do
+        SkillBook[skill] = {}
+        SkillBook[skill].perk = Perks[skill]
+        SkillBook[skill].maxMultiplier1 = 3
+        SkillBook[skill].maxMultiplier2 = 5
+        SkillBook[skill].maxMultiplier3 = 8
+        SkillBook[skill].maxMultiplier4 = 12
+        SkillBook[skill].maxMultiplier5 = 16
+    end
 end
-
-skills = nil

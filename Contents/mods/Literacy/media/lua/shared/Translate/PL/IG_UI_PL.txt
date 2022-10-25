@@ -1,0 +1,7 @@
+IG_UI_PL = {
+    IGUI_BookName_1 = "%1 tom I",
+    IGUI_BookName_2 = "%1 tom II",
+    IGUI_BookName_3 = "%1 tom III",
+    IGUI_BookName_4 = "%1 tom IV",
+    IGUI_BookName_5 = "%1 tom V",
+}

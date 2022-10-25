@@ -1,0 +1,7 @@
+IG_UI_RU = {
+	IGUI_BookName_1 = "%1. Том 1",
+    IGUI_BookName_2 = "%1. Том 2",
+    IGUI_BookName_3 = "%1. Том 3",
+    IGUI_BookName_4 = "%1. Том 4",
+    IGUI_BookName_5 = "%1. Том 5",
+}
