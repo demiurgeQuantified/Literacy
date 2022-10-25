@@ -1,9 +1,9 @@
-name=Albion's Literacy Mod (Legacy)
-id=Literacy
+name=Albion's Literacy Mod
+id=AlbionLiteracy
 poster=literacy.png
-description=(Legacy version) Adds a literacy skill that governs your reading speed and can be leveled up by reading.
+description=Adds a literacy skill that governs your reading speed and can be leveled up by reading.
 require=ProfessionFramework
-versionMin=41.00
+versionMin=41.73
 authors=albion
-modversion=1.2.2
+modversion=2.0.0
 icon=literacymini.png

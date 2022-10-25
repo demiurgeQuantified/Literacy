@@ -25,6 +25,17 @@ Sandbox_EN = {
     Sandbox_Literacy_OverallSpeedMultiplierLevels_option2 = "1.5x",
     Sandbox_Literacy_OverallSpeedMultiplierLevels_option3 = "2x",
 
+    Sandbox_Literacy_WalkWhileReadingLevel = "Read While Walking Level",
+    Sandbox_Literacy_WalkWhileReadingLevel_tooltip = "What level you unlock the ability to walk while reading. -1 means never, 0 means it is always possible.",
+    Sandbox_Literacy_SpeedWhileMoving = "Walking Reading Speed Penalty",
+    Sandbox_Literacy_SpeedWhileMoving_tooltip = "Reading speed is multiplied by this value while moving - 1 means no speed penalty.",
+
+    Sandbox_Literacy_StandingReadingSpeed = "Standing Reading Speed",
+    Sandbox_Literacy_StandingReadingSpeed_tooltip = "Reading speed is multiplied by this value while not sitting - 1 means no speed penalty. 0 means you can't read while standing at all.",
+
+    Sandbox_Literacy_DontDestroyStatBooks = "Stat Books Remain",
+    Sandbox_Literacy_DontDestroyStatBooks_tooltip = "When enabled, stat books (such as Book and Comic Book) will not be deleted when they're read. A character can still only read each book once, but multiple characters can read the same book. Disable to restore Vanilla behaviour.",
+
     Sandbox_Literacy_IlliteratePenalty = "Illiterate: Permanent Penalty",
     Sandbox_Literacy_IlliteratePenalty_tooltip = "Remaining debuffs after losing the Illiterate trait",
     Sandbox_Literacy_IlliteratePenalties_option1 = "None",
@@ -44,6 +55,9 @@ Sandbox_EN = {
     Sandbox_Literacy_WantLiteracyMag = "Literacy Magazine",
     Sandbox_Literacy_WantLiteracyMag_tooltip = "Turn off to stop the 'Learn to Read!' magazine from spawning.",
     Sandbox_Literacy_LiteracyMagCraftable = "Literacy Magazine Craftable",
+
+    Sandbox_Literacy_WantLiteracyVHS = "Learn to Read VHS",
+    Sandbox_Literacy_WantLiteracyVHS_tooltip = "Turn off to stop the 'Learn to Read!' VHS tape, which allows players to lose the Illiterate trait, from spawning.",
 
     Sandbox_Literacy_SafeMode = "Safe Mode",
     Sandbox_Literacy_SafeMode_tooltip = "Disables the custom book spawning code used by this mod. This is usually needed when using mods that add lots of books or items that spawn where books do, such as True Music.",

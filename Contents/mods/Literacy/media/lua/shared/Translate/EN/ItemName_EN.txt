@@ -1,5 +1,5 @@
 ItemName_EN = {
-    ItemName_Literacy.LiteracyMag = "Learn to Read!",
+    ItemName_Literacy.LiteracyMag = "Old Magazine",
 
     ItemName_Literacy.BookAiming1 = "Aiming Vol. 1",
     ItemName_Literacy.BookAiming2 = "Aiming Vol. 2",

@@ -21,7 +21,7 @@ perk Reading
 {
 	parent = Mind,
 	translation = Reading,
-	passive = true,
+	passive = false,
 	xp1 = 50,
 	xp2 = 100,
 	xp3 = 200,
