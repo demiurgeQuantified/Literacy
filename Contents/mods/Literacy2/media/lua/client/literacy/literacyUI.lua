@@ -17,21 +17,6 @@
 ]]
 Literacy = Literacy or {}
 
-function Literacy.addReadSuffix(item)
-    local suffix = getTextOrNull('IGUI_ReadIndicator')
-    if not suffix then return end -- better to just not run this on unsupported languages
-    
-    if Literacy.PlayerHasReadBook(getPlayer(), item) then
-        if not luautils.stringEnds(item:getName(), suffix) then
-            item:setName(item:getName() .. suffix)
-        end
-    else
-        if luautils.stringEnds(item:getName(), suffix) then
-            item:setName(string.sub(item:getName(), 1, -#suffix))
-        end
-    end
-end
-
 local old_checkXPBoost = CharacterCreationProfession.checkXPBoost
 
 function CharacterCreationProfession:checkXPBoost()
@@ -98,13 +83,15 @@ function ISSkillProgressBar:updateTooltip(lvlSelected)
     end
 end
 
-function Literacy.MarkReadBooks(inventoryPage, state)
-    if state == 'end' and inventoryPage.inventoryPane ~= nil then
-        local books = inventoryPage.inventoryPane.inventory:getAllCategory('Literature')
-        for i=0,books:size()-1 do
-            local book = books:get(i)
-            Literacy.addReadSuffix(book)
+Literacy.readIndicator = getTextOrNull('IGUI_ReadIndicator')
+
+do
+    local metatable = __classmetatables[zombie.inventory.types.Literature.class].__index
+    local old_getName = metatable.getName
+    function metatable.getName(self)
+        if Literacy.PlayerHasReadBook(getPlayer(), self) and Literacy.readIndicator then
+            return old_getName(self) .. Literacy.readIndicator
         end
+        return old_getName(self)
     end
 end
-Events.OnRefreshInventoryWindowContainers.Add(Literacy.MarkReadBooks)
