@@ -83,14 +83,12 @@ function ISSkillProgressBar:updateTooltip(lvlSelected)
     end
 end
 
-Literacy.readIndicator = getText('IGUI_ReadIndicator')
-
 do
     local metatable = __classmetatables[zombie.inventory.types.Literature.class].__index
     local old_getName = metatable.getName
     function metatable.getName(self)
         if Literacy.PlayerHasReadBook(getPlayer(), self) then
-            return old_getName(self) .. Literacy.readIndicator
+            return  getText('IGUI_ReadIndicator', old_getName(self))
         end
         return old_getName(self)
     end
