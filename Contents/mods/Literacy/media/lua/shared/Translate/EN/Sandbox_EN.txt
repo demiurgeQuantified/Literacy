@@ -33,6 +33,9 @@ Sandbox_EN = {
     Sandbox_Literacy_StandingReadingSpeed = "Standing Reading Speed",
     Sandbox_Literacy_StandingReadingSpeed_tooltip = "Reading speed is multiplied by this value while not sitting - 1 means no speed penalty. 0 means you can't read while standing at all.",
 
+    Sandbox_Literacy_ReadInTheDark = "Read in the Dark",
+    Sandbox_Literacy_ReadInTheDark_tooltip = "If disabled, characters can't read in low light levels.",
+
     Sandbox_Literacy_DontDestroyStatBooks = "Stat Books Remain",
     Sandbox_Literacy_DontDestroyStatBooks_tooltip = "When enabled, stat books (such as Book and Comic Book) will not be deleted when they're read. A character can still only read each book once, but multiple characters can read the same book. Disable to restore Vanilla behaviour.",
 

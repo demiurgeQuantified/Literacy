@@ -124,7 +124,20 @@ function ISReadABook:isValid()
         return false
     end
 
-    if not self.character:isSitOnGround() and SandboxVars.Literacy.StandingReadingSpeed == 0 and not self.character:getVehicle() then
+    if not SandboxVars.Literacy.ReadInTheDark and self.character:getSquare():getLightLevel(self.character:getPlayerNum()) < 0.35 then
+        local line = nil
+        local rand = ZombRand(1, 3)
+        if rand == 1 then
+            line = getText("IGUI_PlayerText_CantReadDark")
+        else
+            line = getText("IGUI_PlayerText_CantReadDark2")
+        end
+        self.character:Say(line)
+
+        return false
+    end
+
+    if SandboxVars.Literacy.StandingReadingSpeed == 0 and not self.character:isSitOnGround() and not self.character:getVehicle() then
         self.character:Say(getText("IGUI_PlayerText_CantReadStanding"))
         return false
     end

@@ -60,6 +60,14 @@ option Literacy.StandingReadingSpeed
     translation = Literacy_StandingReadingSpeed,
 }
 
+option Literacy.ReadInTheDark
+{
+    type = boolean,
+    default = true,
+    page = Literacy,
+    translation = Literacy_ReadInTheDark,
+}
+
 option Literacy.DontDestroyStatBooks
 {
     type = boolean,
