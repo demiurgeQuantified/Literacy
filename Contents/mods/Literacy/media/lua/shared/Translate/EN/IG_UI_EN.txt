@@ -8,9 +8,5 @@ IGUI_EN = {
     IGUI_PlayerText_CantReadDark = "It's too dark to read.",
     IGUI_PlayerText_CantReadDark2 = "I can't read in this dark.",
     IGUI_ReadIndicator = "%1 (Read)",
-    IGUI_BookName_1 = "%1 Vol. 1",
-    IGUI_BookName_2 = "%1 Vol. 2",
-    IGUI_BookName_3 = "%1 Vol. 3",
-    IGUI_BookName_4 = "%1 Vol. 4",
-    IGUI_BookName_5 = "%1 Vol. 5",
+    IGUI_BookName = "%1 Vol. %2",
 }

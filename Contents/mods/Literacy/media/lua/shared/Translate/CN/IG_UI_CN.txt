@@ -1,7 +1,3 @@
 IG_UI_CN = {
-    IGUI_BookName_1 = "%11阶-初级",
-    IGUI_BookName_2 = "%12阶-中级",
-    IGUI_BookName_3 = "%13阶-高级",
-    IGUI_BookName_4 = "%14阶-专家",
-    IGUI_BookName_5 = "%15阶-大师",
+    IGUI_BookName = "%1%2阶-初级"
 }

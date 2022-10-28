@@ -16,18 +16,25 @@
     For any questions, contact me through steam or on Discord - albion#0123
 ]]
 do
-    local supportedLanguages = {['EN'] = true, ['TR'] = true}
+    local supportedLanguages = {['EN'] = true, ['TR'] = true} -- languages with full translations
+    local specialNumerationLanguages = {['PL'] = true} -- languages you can't just insert i into to get the correct translation
 
-    local skills = {'Reloading', 'Aiming', 'Strength', 'Fitness', 'Nimble', 'Sprinting', 'Sneak', 'Lightfoot', 'Maintenance', 'Axe', 'SmallBlunt', 'Blunt', 'SmallBlade', 'LongBlade', 'Spear'}
+    local lang = getCore():getOptionLanguageName()
 
-    local skillTranslation = {['Lightfoot'] = 'Lightfooted', ['Sneak'] = 'Sneaking'}
-
-    if not supportedLanguages[getCore():getOptionLanguageName()] then
+    if not supportedLanguages[lang] then
+        local skills = {'Reloading', 'Aiming', 'Strength', 'Fitness', 'Nimble', 'Sprinting', 'Sneak', 'Lightfoot', 'Maintenance', 'Axe', 'SmallBlunt', 'Blunt', 'SmallBlade', 'LongBlade', 'Spear'}
+        local skillTranslation = {['Lightfoot'] = 'Lightfooted', ['Sneak'] = 'Sneaking'}
         local scriptManager = getScriptManager()
+        
         for _,skill in ipairs(skills) do
             for i=1,5 do
                 local skillName = getText('IGUI_perks_' .. (skillTranslation[skill] or skill))
-                local name = getText('IGUI_BookName_' .. i, skillName)
+                local name
+                if not specialNumerationLanguages[lang] then
+                    name = getText('IGUI_BookName', skillName, i)
+                else
+                    name = getText('IGUI_BookName_' .. i, skillName)
+                end
                 scriptManager:getItem('Literacy.Book' .. skill .. i):setDisplayName(name)
             end
         end

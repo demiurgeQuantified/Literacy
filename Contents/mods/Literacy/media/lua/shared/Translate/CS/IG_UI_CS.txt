@@ -1,7 +1,3 @@
 IG_UI_CS = {
-	IGUI_BookName_1 = "%1 1. díl",
-	IGUI_BookName_2 = "%1 2. díl",
-	IGUI_BookName_3 = "%1 3. díl",
-	IGUI_BookName_4 = "%1 4. díl",
-	IGUI_BookName_5 = "%1 5. díl",
+	IGUI_BookName = "%1 %2. díl",
 }
