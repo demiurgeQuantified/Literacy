@@ -74,7 +74,7 @@ local old_updateTooltip = ISSkillProgressBar.updateTooltip
 function ISSkillProgressBar:updateTooltip(lvlSelected)
     old_updateTooltip(self, lvlSelected)
     if self.perk == Perks.Reading then
-        local readingSpeed = Literacy.calculateReadingSpeed(getPlayer())
+        local readingSpeed = Literacy.calculateReadingSpeed(self.char)
         readingSpeed = readingSpeed * 100
         if readingSpeed % 10 ~= 0 then
             readingSpeed = math.floor(readingSpeed) + 1
