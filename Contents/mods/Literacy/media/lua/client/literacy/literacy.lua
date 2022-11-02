@@ -17,7 +17,7 @@
 ]]
 local Literacy = {}
 
-function Literacy.getInitialLiteracyLevel()
+function Literacy.getInitialLiteracyLevel(player)
     local level = 5
     if player:HasTrait('FastReader') then
         level = level + 1
@@ -27,15 +27,14 @@ function Literacy.getInitialLiteracyLevel()
     return level
 end
 
-function Literacy.setInitialLiteracy()
-    local player = getPlayer()
+function Literacy.setInitialLiteracy(_playerNum, player)
     local LiteracySetUp = player:getModData().LiteracySetUp
     if not LiteracySetUp then
         player:level0(Perks.Reading)
         player:getXp():setPerkBoost(Perks.Reading, 0)
 
         if not player:HasTrait('Illiterate') then
-            local desiredLevel = Literacy.getInitialLiteracyLevel()
+            local desiredLevel = Literacy.getInitialLiteracyLevel(player)
             for i=1, desiredLevel do
                 player:LevelPerk(Perks.Reading)
             end
