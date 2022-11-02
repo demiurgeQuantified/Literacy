@@ -27,6 +27,17 @@ function Literacy.getInitialLiteracyLevel(player)
     return level
 end
 
+function Literacy.applyTraitModifiers(character, speed)
+    if character:HasTrait('FastReader') then
+        speed = speed + 0.2
+    elseif character:HasTrait('SlowReader') then
+        speed = speed - 0.2
+    elseif character:HasTrait('VerySlowReader') then
+        speed = speed - 0.4
+    end
+    return speed
+end
+
 function Literacy.setInitialLiteracy(_playerNum, player)
     local LiteracySetUp = player:getModData().LiteracySetUp
     if not LiteracySetUp then
@@ -55,13 +66,7 @@ function Literacy.calculateReadingSpeed(character)
         readingSpeed = readingSpeed * 0.2
     end
     
-    if character:HasTrait('FastReader') then
-        readingSpeed = readingSpeed + 0.2
-    elseif character:HasTrait('SlowReader') then
-        readingSpeed = readingSpeed - 0.2
-    elseif character:HasTrait('VerySlowReader') then
-        readingSpeed = readingSpeed - 0.4
-    end
+    readingSpeed = Literacy.applyTraitModifiers(readingSpeed, character)
 
     readingSpeed = readingSpeed + 1
     readingSpeed = math.max(0.2, readingSpeed)
