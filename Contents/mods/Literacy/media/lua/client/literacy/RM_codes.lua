@@ -16,39 +16,42 @@
     For any questions, contact me through steam or on Discord - albion#0123
 ]]
 local mults = {3,5,8,12,16}
-
-local function handleLiteracyVHS(_guid, code)
+local ISRadioInteractions = ISRadioInteractions:getInstance()
+    
+local function handleLiteracyVHS(_guid, code, x, y, z)
     if not code then return end
-    local player = getPlayer()
-    if player:isAsleep() then return end
+    for playerNum = 0,3 do
+        local player = getSpecificPlayer(playerNum)
+        if not player or player:isAsleep() or player:isDead() or not ISRadioInteractions.playerInRange(player, x, y, z) then return end
 
-    if luautils.stringStarts(code, 'LIT') then
-        local level = tonumber(string.sub(code, 4, 4))
-        local multiplier = tonumber(string.sub(code, 6, -1))
-        local lowestLevel = (level-1)*2
-        local highestLevel = lowestLevel+1
-        if player:getPerkLevel(Perks.Reading) >= lowestLevel and player:getPerkLevel(Perks.Reading) <= highestLevel then
-            local oldMult = player:getXp():getMultiplier(Perks.Reading)
-            if oldMult < mults[level] then
-                local newMult = oldMult + (mults[level] * multiplier)
-                newMult = newMult * 10
-                newMult = math.floor(newMult + 0.5)
-                newMult = newMult / 10
-                newMult = math.min(mults[level], newMult)   
-                player:getXp():addXpMultiplier(Perks.Reading, newMult, lowestLevel, highestLevel+1)
+        if luautils.stringStarts(code, 'LIT') then
+            local level = tonumber(string.sub(code, 4, 4))
+            local multiplier = tonumber(string.sub(code, 6, -1))
+            local lowestLevel = (level-1)*2
+            local highestLevel = lowestLevel+1
+            if player:getPerkLevel(Perks.Reading) >= lowestLevel and player:getPerkLevel(Perks.Reading) <= highestLevel then
+                local oldMult = player:getXp():getMultiplier(Perks.Reading)
+                if oldMult < mults[level] then
+                    local newMult = oldMult + (mults[level] * multiplier)
+                    newMult = newMult * 10
+                    newMult = math.floor(newMult + 0.5)
+                    newMult = newMult / 10
+                    newMult = math.min(mults[level], newMult)   
+                    player:getXp():addXpMultiplier(Perks.Reading, newMult, lowestLevel, highestLevel+1)
+                end
             end
-        end
-    elseif code == '-ILT' then
-        if player:HasTrait('Illiterate') then
-            player:getTraits():remove('Illiterate')
-            if SandboxVars.Literacy.IlliteratePenalty == 2 then
-                player:getTraits():add('SlowReader')
-                player:getTraits():add('PoorReader')
-            elseif SandboxVars.Literacy.IlliteratePenalty == 3 then
-                player:getTraits():add('VerySlowReader')
-            end
-            if ISCharacterInfoWindow.instance then
-                ISCharacterInfoWindow.instance.charScreen:loadTraits()
+        elseif code == '-ILT' then
+            if player:HasTrait('Illiterate') then
+                player:getTraits():remove('Illiterate')
+                if SandboxVars.Literacy.IlliteratePenalty == 2 then
+                    player:getTraits():add('SlowReader')
+                    player:getTraits():add('PoorReader')
+                elseif SandboxVars.Literacy.IlliteratePenalty == 3 then
+                    player:getTraits():add('VerySlowReader')
+                end
+                if ISCharacterInfoWindow.instance then
+                    ISCharacterInfoWindow.instance.charScreen:loadTraits()
+                end
             end
         end
     end
