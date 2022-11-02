@@ -15,20 +15,20 @@
 
     For any questions, contact me through steam or on Discord - albion#0123
 ]]
-Literacy = Literacy or {}
-Literacy.Tapes = {}
+local LiteracyTapes = {}
+LiteracyTapes.Tapes = {}
 
-function Literacy.getTapes(recordedMedia)
+function LiteracyTapes.getTapes()
     for guid,data in pairs(RecMedia) do
         if data.category == 'Literacy-VHS' then
-            if not Literacy.Tapes[data.spawning] then Literacy.Tapes[data.spawning] = {} end
-            table.insert(Literacy.Tapes[data.spawning], guid)
+            if not LiteracyTapes.Tapes[data.spawning] then Literacy.Tapes[data.spawning] = {} end
+            table.insert(LiteracyTapes.Tapes[data.spawning], guid)
         end
     end
 end
-Events.OnInitRecordedMedia.Add(Literacy.getTapes)
+Events.OnInitRecordedMedia.Add(LiteracyTapes.getTapes)
 
-function Literacy.setVHS(_roomName, _containerType, container)
+function LiteracyTapes.setVHS(_roomName, _containerType, container)
     local VHSs = container:FindAll('VHS_Literacy')
     if not VHSs then return end
     for i = 0, VHSs:size()-1 do
@@ -46,8 +46,10 @@ function Literacy.setVHS(_roomName, _containerType, container)
         elseif choice > 3 then
             rarity = 1
         end
-        local tape = Literacy.Tapes[rarity][ZombRand(1, #Literacy.Tapes[rarity]+1)]
+        local tape = LiteracyTapes.Tapes[rarity][ZombRand(1, #LiteracyTapes.Tapes[rarity]+1)]
         item:setRecordedMediaData(getZomboidRadio():getRecordedMedia():getMediaData(tape))
     end
 end
-Events.OnFillContainer.Add(Literacy.setVHS)
+Events.OnFillContainer.Add(LiteracyTapes.setVHS)
+
+return LiteracyTapes

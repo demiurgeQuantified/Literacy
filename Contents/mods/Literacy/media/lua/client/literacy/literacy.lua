@@ -15,7 +15,7 @@
 
     For any questions, contact me through steam or on Discord - albion#0123
 ]]
-Literacy = Literacy or {}
+local Literacy = {}
 
 function Literacy.setInitialLiteracy()
     local player = getPlayer()
@@ -85,3 +85,5 @@ end
 function Literacy.IsRecipeBook(book)
     return book:getTeachedRecipes() and not book:getTeachedRecipes():isEmpty()
 end
+
+return Literacy

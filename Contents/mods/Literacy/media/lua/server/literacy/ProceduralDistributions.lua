@@ -15,7 +15,7 @@
 
     For any questions, contact me through steam or on Discord - albion#0123
 ]]
-function Literacy.HandleDistributions()
+local function HandleDistributions()
     local bookLocationsAndValues = {
         ['BookstoreBooks'] = {10, 8, 6, 4, 2},
         ['ClassroomMisc'] = {2, 1, 0.5, 0.1, 0.01},
@@ -111,5 +111,6 @@ function Literacy.HandleDistributions()
 
     ItemPickerJava.Parse()
 end
+Events.OnInitGlobalModData.Add(HandleDistributions)
 
-Events.OnInitGlobalModData.Add(Literacy.HandleDistributions)
+return HandleDistributions

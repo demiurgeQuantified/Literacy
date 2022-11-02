@@ -15,7 +15,7 @@
 
     For any questions, contact me through steam or on Discord - albion#0123
 ]]
-Literacy = Literacy or {}
+local Literacy = require 'literacy/literacy'
 
 local old_checkXPBoost = CharacterCreationProfession.checkXPBoost
 

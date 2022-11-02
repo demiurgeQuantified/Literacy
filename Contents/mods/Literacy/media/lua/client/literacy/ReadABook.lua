@@ -15,7 +15,7 @@
 
     For any questions, contact me through steam or on Discord - albion#0123
 ]]
-Literacy = Literacy or {}
+local Literacy = require 'literacy/literacy'
 
 local readingDifficultyMultipliers = {1, 1.05, 1.1, 1.15, 1.2, 1.25, 1.3, 1.35, 1.4, 1.45}
 
