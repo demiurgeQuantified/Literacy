@@ -17,16 +17,6 @@
 ]]
 local Literacy = {}
 
-if getSteamModeActive() then
-    function Literacy.getIdentifier(player)
-        return player:getSteamID()
-    end
-else
-    function Literacy.getIdentifier(player)
-        return player:getUsername()
-    end
-end
-
 function Literacy.getInitialLiteracyLevel(player)
     local level = 5
     if player:HasTrait('FastReader') then
@@ -49,7 +39,8 @@ function Literacy.applyTraitModifiers(character, speed)
 end
 
 function Literacy.setInitialLiteracy(_playerNum, player)
-    if not player:getModData().LiteracySetUp then
+    local modData = player:getModData()
+    if not modData.LiteracySetUp then
         player:level0(Perks.Reading)
         player:getXp():setPerkBoost(Perks.Reading, 0)
 
@@ -60,7 +51,10 @@ function Literacy.setInitialLiteracy(_playerNum, player)
             end
             player:getXp():setXPToLevel(Perks.Reading, desiredLevel)
         end
-        player:getModData().LiteracySetUp = true
+        modData.LiteracySetUp = true
+    end
+    if not modData.StarlitUUID then
+        modData.StarlitUUID = getRandomUUID()
     end
 end
 Events.OnCreatePlayer.Add(Literacy.setInitialLiteracy)
@@ -96,7 +90,7 @@ end
 Events.LevelPerk.Add(Literacy.LevelPerk)
 
 function Literacy.PlayerHasReadBook(player, book)
-    return book:getModData()['AlreadyReadPlayers'] and book:getModData()['AlreadyReadPlayers'][Literacy.getIdentifier(player)]
+    return book:getModData()['AlreadyReadPlayers'] and book:getModData()['AlreadyReadPlayers'][player:getModData().StarlitUUID]
 end
 
 function Literacy.IsRecipeBook(book)
