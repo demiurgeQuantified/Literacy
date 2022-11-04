@@ -17,8 +17,41 @@
 ]]
 local mults = {3,5,8,12,16}
 local ISRadioInteractions = ISRadioInteractions:getInstance()
-    
-local function handleLiteracyVHS(_guid, code, x, y, z)
+
+local LiteracyCodeHandler = {}
+
+function LiteracyCodeHandler.addLiteracyMultiplier(player, level, multiplier)
+    local lowestLevel = (level-1)*2
+    local highestLevel = lowestLevel+1
+    if player:getPerkLevel(Perks.Reading) >= lowestLevel and player:getPerkLevel(Perks.Reading) <= highestLevel then
+        local oldMult = player:getXp():getMultiplier(Perks.Reading)
+        if oldMult < mults[level] then
+            local newMult = oldMult + (mults[level] * multiplier)
+            newMult = newMult * 10
+            newMult = math.floor(newMult + 0.5)
+            newMult = newMult / 10
+            newMult = math.min(mults[level], newMult)   
+            player:getXp():addXpMultiplier(Perks.Reading, newMult, lowestLevel, highestLevel+1)
+        end
+    end
+end
+
+function LiteracyCodeHandler.loseIlliterate(player)
+    if player:HasTrait('Illiterate') then
+        player:getTraits():remove('Illiterate')
+        if SandboxVars.Literacy.IlliteratePenalty == 2 then
+            player:getTraits():add('SlowReader')
+            player:getTraits():add('PoorReader')
+        elseif SandboxVars.Literacy.IlliteratePenalty == 3 then
+            player:getTraits():add('VerySlowReader')
+        end
+        if ISCharacterInfoWindow.instance then
+            ISCharacterInfoWindow.instance.charScreen:loadTraits()
+        end
+    end
+end
+
+function LiteracyCodeHandler.handleVHS(_guid, code, x, y, z)
     if not code then return end
     for playerNum = 0,3 do
         local player = getSpecificPlayer(playerNum)
@@ -27,35 +60,12 @@ local function handleLiteracyVHS(_guid, code, x, y, z)
         if luautils.stringStarts(code, 'LIT') then
             local level = tonumber(string.sub(code, 4, 4))
             local multiplier = tonumber(string.sub(code, 6, -1))
-            local lowestLevel = (level-1)*2
-            local highestLevel = lowestLevel+1
-            if player:getPerkLevel(Perks.Reading) >= lowestLevel and player:getPerkLevel(Perks.Reading) <= highestLevel then
-                local oldMult = player:getXp():getMultiplier(Perks.Reading)
-                if oldMult < mults[level] then
-                    local newMult = oldMult + (mults[level] * multiplier)
-                    newMult = newMult * 10
-                    newMult = math.floor(newMult + 0.5)
-                    newMult = newMult / 10
-                    newMult = math.min(mults[level], newMult)   
-                    player:getXp():addXpMultiplier(Perks.Reading, newMult, lowestLevel, highestLevel+1)
-                end
-            end
+            LiteracyCodeHandler.addLiteracyMultiplier(player, level, multiplier)
         elseif code == '-ILT' then
-            if player:HasTrait('Illiterate') then
-                player:getTraits():remove('Illiterate')
-                if SandboxVars.Literacy.IlliteratePenalty == 2 then
-                    player:getTraits():add('SlowReader')
-                    player:getTraits():add('PoorReader')
-                elseif SandboxVars.Literacy.IlliteratePenalty == 3 then
-                    player:getTraits():add('VerySlowReader')
-                end
-                if ISCharacterInfoWindow.instance then
-                    ISCharacterInfoWindow.instance.charScreen:loadTraits()
-                end
-            end
+            LiteracyCodeHandler.loseIlliterate(player)
         end
     end
 end
-Events.OnDeviceText.Add(handleLiteracyVHS)
+Events.OnDeviceText.Add(LiteracyCodeHandler.handleVHS)
 
-return handleLiteracyVHS
+return LiteracyCodeHandler

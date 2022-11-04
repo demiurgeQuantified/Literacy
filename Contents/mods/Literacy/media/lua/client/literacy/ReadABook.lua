@@ -19,16 +19,6 @@ local Literacy = require 'literacy/literacy'
 
 local readingDifficultyMultipliers = {1, 1.05, 1.1, 1.15, 1.2, 1.25, 1.3, 1.35, 1.4, 1.45}
 
-if getSteamModeActive() then
-    function Literacy.getIdentifier(player)
-        return player:getSteamID()
-    end
-else
-    function Literacy.getIdentifier(player)
-        return player:getUsername()
-    end
-end
-
 local old_new = ISReadABook.new
 
 function ISReadABook:new(character, item, time)

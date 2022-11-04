@@ -17,6 +17,16 @@
 ]]
 local Literacy = {}
 
+if getSteamModeActive() then
+    function Literacy.getIdentifier(player)
+        return player:getSteamID()
+    end
+else
+    function Literacy.getIdentifier(player)
+        return player:getUsername()
+    end
+end
+
 function Literacy.getInitialLiteracyLevel(player)
     local level = 5
     if player:HasTrait('FastReader') then
