@@ -39,8 +39,7 @@ function Literacy.applyTraitModifiers(character, speed)
 end
 
 function Literacy.setInitialLiteracy(_playerNum, player)
-    local LiteracySetUp = player:getModData().LiteracySetUp
-    if not LiteracySetUp then
+    if not player:getModData().LiteracySetUp then
         player:level0(Perks.Reading)
         player:getXp():setPerkBoost(Perks.Reading, 0)
 
@@ -51,7 +50,7 @@ function Literacy.setInitialLiteracy(_playerNum, player)
             end
             player:getXp():setXPToLevel(Perks.Reading, desiredLevel)
         end
-        LiteracySetUp = 1
+        player:getModData().LiteracySetUp = true
     end
 end
 Events.OnCreatePlayer.Add(Literacy.setInitialLiteracy)
@@ -66,7 +65,7 @@ function Literacy.calculateReadingSpeed(character)
         readingSpeed = readingSpeed * 0.2
     end
     
-    readingSpeed = Literacy.applyTraitModifiers(readingSpeed, character)
+    readingSpeed = Literacy.applyTraitModifiers(character, readingSpeed)
 
     readingSpeed = readingSpeed + 1
     readingSpeed = math.max(0.2, readingSpeed)

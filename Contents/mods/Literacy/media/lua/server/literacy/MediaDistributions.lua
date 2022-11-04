@@ -21,7 +21,7 @@ LiteracyTapes.Tapes = {}
 function LiteracyTapes.getTapes()
     for guid,data in pairs(RecMedia) do
         if data.category == 'Literacy-VHS' then
-            if not LiteracyTapes.Tapes[data.spawning] then Literacy.Tapes[data.spawning] = {} end
+            if not LiteracyTapes.Tapes[data.spawning] then LiteracyTapes.Tapes[data.spawning] = {} end
             table.insert(LiteracyTapes.Tapes[data.spawning], guid)
         end
     end
