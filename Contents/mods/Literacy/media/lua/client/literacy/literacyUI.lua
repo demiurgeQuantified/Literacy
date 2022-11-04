@@ -83,12 +83,27 @@ function ISSkillProgressBar:updateTooltip(lvlSelected)
     end
 end
 
+local old_refreshContainer = ISInventoryPane.refreshContainer
+
+function ISInventoryPane:refreshContainer()
+    if getNumActivePlayers() ~= 1 then
+        local books = self.inventory:getItemsFromCategory('Literature')
+        for i = 0, books:size()-1 do
+            local book = books:get(i)
+            if Literacy.PlayerHasReadBook(getSpecificPlayer(self.player), book) then
+                book:setName(getText('IGUI_ReadIndicator', book:getScriptItem():getDisplayName()))
+            end
+        end
+    end
+    old_refreshContainer(self)
+end
+
 do
     local metatable = __classmetatables[zombie.inventory.types.Literature.class].__index
     local old_getName = metatable.getName
     function metatable.getName(self)
-        if Literacy.PlayerHasReadBook(getPlayer(), self) then
-            return  getText('IGUI_ReadIndicator', old_getName(self))
+        if getNumActivePlayers() == 1 and Literacy.PlayerHasReadBook(getPlayer(), self) then
+            return getText('IGUI_ReadIndicator', old_getName(self))
         end
         return old_getName(self)
     end
