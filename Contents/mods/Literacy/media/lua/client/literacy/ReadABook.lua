@@ -92,7 +92,7 @@ function ISReadABook:perform()
         self.character:getXp():AddXP(Perks.Reading, (XPReward * 4) * SandboxVars.Literacy.XPMultiplier)
         if SandboxVars.Literacy.DontDestroyStatBooks and not Literacy.IsRecipeBook(self.item) then
             if not modData['AlreadyReadPlayers'] then modData['AlreadyReadPlayers'] = {} end
-            modData['AlreadyReadPlayers'][player:getModData().StarlitUUID] = true
+            modData['AlreadyReadPlayers'][self.character:getModData().StarlitUUID] = true
         end
     end
     old_perform(self)
