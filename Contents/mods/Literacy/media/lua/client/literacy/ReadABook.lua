@@ -142,7 +142,7 @@ function ISReadABook:isValid()
         return false
     end
     
-    ISReadABook.checkMultiplier(self)
+    if ISReadABook.checkMultiplier then ISReadABook.checkMultiplier(self) end -- CDDA reading overwrites ISReadABook and removes this function u_u
     return old_isValid(self)
 end
 
