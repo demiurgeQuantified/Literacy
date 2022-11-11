@@ -2,7 +2,6 @@ name=Albion's Literacy Mod
 id=Literacy
 poster=literacy.png
 description=Adds a literacy skill that governs your reading speed and can be leveled up by reading.
-require=ProfessionFramework
 versionMin=41.73
 authors=albion
 modversion=2.0.0
