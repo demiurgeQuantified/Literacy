@@ -15,15 +15,27 @@
 
     For any questions, contact me through steam or on Discord - albion#0123
 ]]
-TraitFactory.getTrait('FastReader'):addXpBoost(Perks.Reading, 1)
-TraitFactory.getTrait('SlowReader'):addXpBoost(Perks.Reading, -1)
-TraitFactory.getTrait('Illiterate'):addXpBoost(Perks.Reading, -5)
+local function doTraits()
+    TraitFactory.addTrait('PoorReader', getText('UI_trait_PoorReader'), -2, getText('UI_trait_PoorReaderDesc'), false)
+    TraitFactory.addTrait('VerySlowReader', getText('UI_trait_VerySlowReader'), -4, getText('UI_trait_VerySlowReaderDesc'), true)
 
-TraitFactory.addTrait('PoorReader', 'UI_trait_PoorReader', -2, 'UI_trait_PoorReaderDesc', false)
-TraitFactory.setMutualExclusive('PoorReader', 'Illiterate')
-TraitFactory.setMutualExclusive('PoorReader', 'FastReader')
+    local trait = TraitFactory.getTrait('FastReader')
+    if trait then
+        trait:addXPBoost(Perks.Reading, 1)
+        TraitFactory.setMutualExclusive('FastReader', 'VerySlowReader')
+        TraitFactory.setMutualExclusive('FastReader', 'PoorReader')
+    end
+    local trait = TraitFactory.getTrait('SlowReader')
+    if trait then
+        trait:addXPBoost(Perks.Reading, -1)
+        TraitFactory.setMutualExclusive('SlowReader', 'VerySlowReader')
+    end
+    local trait = TraitFactory.getTrait('Illiterate')
+    if trait then
+        trait:addXPBoost(Perks.Reading, -5)
+        TraitFactory.setMutualExclusive('Illiterate', 'VerySlowReader')
+        TraitFactory.setMutualExclusive('Illiterate', 'PoorReader')
+    end
+end
 
-TraitFactory.addTrait('VerySlowReader', 'UI_trait_VerySlowReader', -4, 'UI_trait_VerySlowReaderDesc', true)
-TraitFactory.setMutualExclusive('VerySlowReader', 'Illiterate')
-TraitFactory.setMutualExclusive('VerySlowReader', 'FastReader')
-TraitFactory.setMutualExclusive('VerySlowReader', 'SlowReader')
+Events.OnGameBoot.Add(doTraits)
