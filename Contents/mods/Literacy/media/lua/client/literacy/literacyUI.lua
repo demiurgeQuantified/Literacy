@@ -46,6 +46,7 @@ local old_drawXpBoostMap = CharacterCreationProfession.drawXpBoostMap
 function CharacterCreationProfession:drawXpBoostMap(y, item, alt)
     if item.item.perk == Perks.Reading then
         local dy = (self.itemheight - self.fontHgt) / 2
+        local hc = getCore():getGoodHighlitedColor()
         self:drawText(item.text, 16, y + dy, 0, 1, 0, 1, UIFont.Small);
 
         local textWid = getTextManager():MeasureStringX(UIFont.Small, item.text)
@@ -56,7 +57,7 @@ function CharacterCreationProfession:drawXpBoostMap(y, item, alt)
         end
 
         for i = 1,item.item.level do
-            self:drawTexture(CharacterCreationProfession.instance.greenBlits, self.width - (68 + 10 * 4) + (i * 4), (yy) + dy + 4, 1, 1, 1, 1);
+            self:drawTexture(CharacterCreationProfession.instance.whiteBar, self.width - (68 + 10 * 4) + (i * 4), (yy) + dy + 4, 1, hc:getR(), hc:getG(), hc:getB());
         end
 
         yy = yy + self.itemheight;
