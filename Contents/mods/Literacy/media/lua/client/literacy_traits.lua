@@ -15,35 +15,15 @@
 
     For any questions, contact me through steam or on Discord - albion#0123
 ]]
-ProfessionFramework.addTrait('FastReader', {
-    xp = {
-        [Perks.Reading] = 1
-    }
-})
+TraitFactory.getTrait('FastReader'):addXpBoost(Perks.Reading, 1)
+TraitFactory.getTrait('SlowReader'):addXpBoost(Perks.Reading, -1)
+TraitFactory.getTrait('Illiterate'):addXpBoost(Perks.Reading, -5)
 
-ProfessionFramework.addTrait('SlowReader', {
-    xp = {
-        [Perks.Reading] = -1
-    }
-})
+TraitFactory.addTrait('PoorReader', 'UI_trait_PoorReader', -2, 'UI_trait_PoorReaderDesc', false)
+TraitFactory.setMutualExclusive('PoorReader', 'Illiterate')
+TraitFactory.setMutualExclusive('PoorReader', 'FastReader')
 
-ProfessionFramework.addTrait('Illiterate', {
-    xp = {
-        [Perks.Reading] = -5
-    }
-})
-
-ProfessionFramework.addTrait('PoorReader', {
-    name = 'UI_trait_PoorReader',
-    description = 'UI_trait_PoorReaderDesc',
-    cost = -2,
-    exclude = { 'Illiterate', 'FastReader' }
-})
-
-ProfessionFramework.addTrait('VerySlowReader', {
-    name = 'UI_trait_VerySlowReader',
-    description = 'UI_trait_VerySlowReaderDesc',
-    cost = -4,
-    profession = true,
-    exclude = { 'Illiterate', 'FastReader', 'SlowReader' }
-})
+TraitFactory.addTrait('VerySlowReader', 'UI_trait_VerySlowReader', -4, 'UI_trait_VerySlowReaderDesc', true)
+TraitFactory.setMutualExclusive('VerySlowReader', 'Illiterate')
+TraitFactory.setMutualExclusive('VerySlowReader', 'FastReader')
+TraitFactory.setMutualExclusive('VerySlowReader', 'SlowReader')
