@@ -76,6 +76,12 @@ local function HandleDistributions()
     table.insert(ProceduralDistributions['list']['CrateRandomJunk'].items, 0.025)
     table.insert(ProceduralDistributions['list']['CrateVHSTapes'].items, 'Literacy.VHS_Literacy')
     table.insert(ProceduralDistributions['list']['CrateVHSTapes'].items, 2)
+    table.insert(ProceduralDistributions['list']['MovieRentalShelves'].items, 'Literacy.VHS_Literacy')
+    table.insert(ProceduralDistributions['list']['MovieRentalShelves'].items, 2)
+    table.insert(ProceduralDistributions['list']['LibraryBooks'].items, 'Literacy.VHS_Literacy')
+    table.insert(ProceduralDistributions['list']['LibraryBooks'].items, 0.5)
+    table.insert(ProceduralDistributions['list']['BookstoreBooks'].items, 'Literacy.VHS_Literacy')
+    table.insert(ProceduralDistributions['list']['BookstoreBooks'].items, 0.5)
 
     if not wantedBooks[1] then return end
     for k,v in pairs(bookLocationsAndValues) do
