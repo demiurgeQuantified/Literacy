@@ -20,6 +20,16 @@ option Literacy.OverallSpeedMultiplier
     translation = Literacy_OverallSpeedMultiplier,
 }
 
+option Literacy.LiteracyLevelMultIncrease
+{
+    type = double,
+    min = 0.0,
+    default = 0.0,
+    max = 0.2,
+    page = Literacy,
+    translation = Literacy_LiteracyLevelMultIncrease,
+}
+
 option Literacy.IlliteratePenalty
 {
     type = enum,

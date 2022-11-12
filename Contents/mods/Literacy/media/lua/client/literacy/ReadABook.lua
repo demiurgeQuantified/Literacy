@@ -24,18 +24,27 @@ local old_new = ISReadABook.new
 function ISReadABook:new(character, item, time)
     local o = old_new(self, character, item, time)
 
+    local readingLevel = self.character:getPerkLevel(Perks.Reading)
+
     if o.maxMultiplier and character:HasTrait('PoorReader') then
         o.maxMultiplier = o.maxMultiplier * 0.75
     end
     
-    if character:getPerkLevel(Perks.Reading) >= SandboxVars.Literacy.WalkWhileReadingLevel then
+    if readingLevel >= SandboxVars.Literacy.WalkWhileReadingLevel then
         o.stopOnWalk = false
     end
     if SandboxVars.Literacy.WalkWhileReadingLevel == -1 then
         o.stopOnWalk = true
     end
-
     o.characterWasMoving = false
+
+    if SandboxVars.Literacy.LiteracyLevelMultIncrease ~= 0 then
+        if readingLevel > 5 then
+            o.maxMultiplier = o.maxMultiplier * (readingLevel - 5) * (1 + SandboxVars.Literacy.LiteracyLevelMultIncrease)
+        elseif readingLevel < 5 then
+            o.maxMultiplier = o.maxMultiplier * (1 - (readingLevel - 5) * -0.05)
+        end
+    end
 
     if character:isTimedActionInstant() then
         return o
@@ -49,8 +58,8 @@ function ISReadABook:new(character, item, time)
         time = time / 1.3
     end
 
-    local readingLevel = Literacy.calculateReadingSpeed(character)
-    time = time / readingLevel
+    local readingSpeed = Literacy.calculateReadingSpeed(character)
+    time = time / readingSpeed
     time = time / SandboxVars.Literacy.OverallSpeedMultiplier
 
     if not (character:isSitOnGround() or character:getVehicle()) then
