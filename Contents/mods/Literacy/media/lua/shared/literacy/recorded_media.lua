@@ -132,6 +132,8 @@ RecMedia['dafe1a5e-1e0f-4b59-b96b-5699aef9fa2b'] = {
         { text = "RM_86e9cb7d-2718-438a-98e7-da59d1c0d8cd", r = 0.00, g= 0.69, b = 0.31, codes = 'BOR-1' },
         { text = "RM_71f2f2e0-e02f-4c72-a136-7e322dde2dec", r = 0.00, g= 0.69, b = 0.31, codes = 'BOR-1' },
         { text = "RM_36a8ea0b-cbe9-4acc-a228-d2a29a2b1282", r = 0.00, g= 0.69, b = 0.31, codes = 'BOR-1' },
-        { text = "RM_09486c36-b920-42a9-b6f8-afee21d77131", r = 0.00, g= 0.69, b = 0.31, codes = '-ILT' },
+        { text = "RM_09486c36-b920-42a9-b6f8-afee21d77131", r = 0.00, g= 0.69, b = 0.31, codes = 'BOR-1' },
+        { text = "RM_2f62fdbe-6fc7-4323-97cf-0ae3d7c9ca37", r = 0.00, g= 0.69, b = 0.31, codes = 'BOR-1' },
+        { text = "RM_11e7d667-8ee3-4350-bd96-a6d20e3677ae", r = 0.00, g= 0.69, b = 0.31, codes = '-ILT' },
     },
 }
