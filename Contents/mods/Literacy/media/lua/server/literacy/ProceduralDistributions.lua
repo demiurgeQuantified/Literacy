@@ -86,27 +86,24 @@ local function HandleDistributions()
     if not wantedBooks[1] then return end
     for k,v in pairs(bookLocationsAndValues) do
         local lootTable = ProceduralDistributions['list'][k].items
-        local multiplier = 1
         local wantedBooksForLocation = {}
         for _,book in ipairs(wantedBooks) do
             table.insert(wantedBooksForLocation, book)
         end
-        if not SandboxVars.Literacy.SafeMode then
-            local oldBooks = 0
-            for iterator = #lootTable-1,1,-2 do
-                if luautils.stringStarts(lootTable[iterator], 'Book') and lootTable[iterator] ~= 'Book' then
-                    local removedBook = lootTable[iterator]
-                    table.remove(lootTable, iterator+1)
-                    table.remove(lootTable, iterator)
-                    local trimmedBook = string.sub(removedBook, 1, -2)
-                    if trimmedBook ~= wantedBooksForLocation[#wantedBooksForLocation] then
-                        oldBooks = oldBooks + 1
-                        table.insert(wantedBooksForLocation, trimmedBook)
-                    end
+        local oldBooks = 0
+        for iterator = #lootTable-1,1,-2 do
+            if luautils.stringStarts(lootTable[iterator], 'Book') and lootTable[iterator] ~= 'Book' then
+                local removedBook = lootTable[iterator]
+                table.remove(lootTable, iterator+1)
+                table.remove(lootTable, iterator)
+                local trimmedBook = string.sub(removedBook, 1, -2)
+                if trimmedBook ~= wantedBooksForLocation[#wantedBooksForLocation] then
+                    oldBooks = oldBooks + 1
+                    table.insert(wantedBooksForLocation, trimmedBook)
                 end
             end
-            multiplier = oldBooks / #wantedBooksForLocation
         end
+        local multiplier = oldBooks / #wantedBooksForLocation
         for _,book in ipairs(wantedBooksForLocation) do
             for i=1,5 do
                 table.insert(lootTable, book .. tostring(i))

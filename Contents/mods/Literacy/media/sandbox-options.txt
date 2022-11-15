@@ -133,11 +133,3 @@ option Literacy.WantLiteracyVHS
     page = Literacy,
     translation = Literacy_WantLiteracyVHS,
 }
-
-option Literacy.SafeMode
-{
-    type = boolean,
-    default = true,
-    page = Literacy,
-    translation = Literacy_SafeMode,
-}
