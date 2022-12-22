@@ -15,6 +15,9 @@
 
     For any questions, contact me through steam or on Discord - albion#0123
 ]]
+
+local sandboxVars = SandboxVars.Literacy
+
 local function HandleDistributions()
     local bookLocationsAndValues = {
         ['BookstoreBooks'] = {10, 8, 6, 4, 2},
@@ -30,24 +33,24 @@ local function HandleDistributions()
     
     local wantedBooks = {}
 
-    if SandboxVars.Literacy.WantGunBooks then
+    if sandboxVars.WantGunBooks then
         table.insert(wantedBooks, 'Literacy.BookAiming')
         table.insert(wantedBooks, 'Literacy.BookReloading')
     end
 
-    if SandboxVars.Literacy.WantPassiveBooks then
+    if sandboxVars.WantPassiveBooks then
         table.insert(wantedBooks, 'Literacy.BookStrength')
         table.insert(wantedBooks, 'Literacy.BookFitness')
     end
 
-    if SandboxVars.Literacy.WantAgilityBooks then
+    if sandboxVars.WantAgilityBooks then
         table.insert(wantedBooks, 'Literacy.BookSprinting')
         table.insert(wantedBooks, 'Literacy.BookNimble')
         table.insert(wantedBooks, 'Literacy.BookLightfoot')
         table.insert(wantedBooks, 'Literacy.BookSneak')
     end
 
-    if SandboxVars.Literacy.WantWeaponBooks then
+    if sandboxVars.WantWeaponBooks then
         table.insert(wantedBooks, 'Literacy.BookAxe')
         table.insert(wantedBooks, 'Literacy.BookSmallBlunt')
         table.insert(wantedBooks, 'Literacy.BookBlunt')
@@ -56,7 +59,7 @@ local function HandleDistributions()
         table.insert(wantedBooks, 'Literacy.BookSpear')
     end
 
-    if SandboxVars.Literacy.WantMaintenanceBooks then
+    if sandboxVars.WantMaintenanceBooks then
         table.insert(wantedBooks, 'Literacy.BookMaintenance')
         table.insert(ProceduralDistributions['list']['ToolStoreBooks'].items, 'Literacy.BookMaintenance1')
         table.insert(ProceduralDistributions['list']['ToolStoreBooks'].items, 10)

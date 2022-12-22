@@ -16,6 +16,7 @@
     For any questions, contact me through steam or on Discord - albion#0123
 ]]
 local Literacy = require 'literacy/literacy'
+local sandboxVars = SandboxVars.Literacy
 
 local readingDifficultyMultipliers = {1, 1.05, 1.1, 1.15, 1.2, 1.25, 1.3, 1.35, 1.4, 1.45}
 
@@ -30,17 +31,17 @@ function ISReadABook:new(character, item, time)
         o.maxMultiplier = o.maxMultiplier * 0.75
     end
     
-    if readingLevel >= SandboxVars.Literacy.WalkWhileReadingLevel then
+    if readingLevel >= sandboxVars.WalkWhileReadingLevel then
         o.stopOnWalk = false
     end
-    if SandboxVars.Literacy.WalkWhileReadingLevel == -1 then
+    if sandboxVars.WalkWhileReadingLevel == -1 then
         o.stopOnWalk = true
     end
     o.characterWasMoving = false
 
-    if SandboxVars.Literacy.LiteracyLevelMultIncrease ~= 0 then
+    if sandboxVars.LiteracyLevelMultIncrease ~= 0 then
         if readingLevel > 5 then
-            o.maxMultiplier = o.maxMultiplier * (readingLevel - 5) * (1 + SandboxVars.Literacy.LiteracyLevelMultIncrease)
+            o.maxMultiplier = o.maxMultiplier * (readingLevel - 5) * (1 + sandboxVars.LiteracyLevelMultIncrease)
         elseif readingLevel < 5 then
             o.maxMultiplier = o.maxMultiplier * (1 - (readingLevel - 5) * -0.05)
         end
@@ -60,10 +61,10 @@ function ISReadABook:new(character, item, time)
 
     local readingSpeed = Literacy.calculateReadingSpeed(character)
     time = time / readingSpeed
-    time = time / SandboxVars.Literacy.OverallSpeedMultiplier
+    time = time / sandboxVars.OverallSpeedMultiplier
 
     if not (character:isSitOnGround() or character:getVehicle()) then
-        time = time / SandboxVars.Literacy.StandingReadingSpeed
+        time = time / sandboxVars.StandingReadingSpeed
     end
     
     o.maxTime = time
@@ -75,11 +76,11 @@ local old_update = ISReadABook.update
 function ISReadABook:update()
     if self.character:isPlayerMoving() then
         if not self.characterWasMoving then
-            self:changeMaxTime(self.maxTime / SandboxVars.Literacy.SpeedWhileMoving)
+            self:changeMaxTime(self.maxTime / sandboxVars.SpeedWhileMoving)
         end
     else
         if self.characterWasMoving then
-            self:changeMaxTime(self.maxTime * SandboxVars.Literacy.SpeedWhileMoving)
+            self:changeMaxTime(self.maxTime * sandboxVars.SpeedWhileMoving)
         end
     end
     self.characterWasMoving = self.character:isPlayerMoving()
@@ -87,7 +88,7 @@ function ISReadABook:update()
     local pagesRead = math.floor(self.item:getNumberOfPages() * self:getJobDelta())
     if pagesRead > self.item:getAlreadyReadPages() then
         local difference = pagesRead - self.item:getAlreadyReadPages()
-        self.character:getXp():AddXP(Perks.Reading, difference * 1.5 * readingDifficultyMultipliers[self.item:getLvlSkillTrained()] * SandboxVars.Literacy.XPMultiplier)
+        self.character:getXp():AddXP(Perks.Reading, difference * 1.5 * readingDifficultyMultipliers[self.item:getLvlSkillTrained()] * sandboxVars.XPMultiplier)
     end
     old_update(self)
 end
@@ -98,8 +99,8 @@ function ISReadABook:perform()
     if self.stats then
         local modData = self.item:getModData()
         local XPReward = modData['XPReward'] or 3
-        self.character:getXp():AddXP(Perks.Reading, (XPReward * 4) * SandboxVars.Literacy.XPMultiplier)
-        if SandboxVars.Literacy.DontDestroyStatBooks and not Literacy.IsRecipeBook(self.item) then
+        self.character:getXp():AddXP(Perks.Reading, (XPReward * 4) * sandboxVars.XPMultiplier)
+        if sandboxVars.DontDestroyStatBooks and not Literacy.IsRecipeBook(self.item) then
             if not modData['AlreadyReadPlayers'] then modData['AlreadyReadPlayers'] = {} end
             modData['AlreadyReadPlayers'][self.character:getModData().StarlitUUID] = true
         end
@@ -111,7 +112,7 @@ local old_isValid = ISReadABook.isValid
 
 function ISReadABook:isValid()
     if Literacy.PlayerHasReadBook(self.character, self.item) or self.character:getAlreadyReadBook():contains(self.item:getFullType()) then
-        local line = nil
+        local line
         local rand = ZombRand(1, 3)
         if rand == 1 then
             line = getText("IGUI_PlayerText_AlreadyRead")
@@ -123,8 +124,8 @@ function ISReadABook:isValid()
         return false
     end
 
-    if not SandboxVars.Literacy.ReadInTheDark and self.character:getSquare():getLightLevel(self.character:getPlayerNum()) < 0.35 then
-        local line = nil
+    if not sandboxVars.ReadInTheDark and self.character:getSquare():getLightLevel(self.character:getPlayerNum()) < 0.35 then
+        local line
         local rand = ZombRand(1, 3)
         if rand == 1 then
             line = getText("IGUI_PlayerText_CantReadDark")
@@ -136,7 +137,7 @@ function ISReadABook:isValid()
         return false
     end
 
-    if SandboxVars.Literacy.StandingReadingSpeed == 0 and not self.character:isSitOnGround() and not self.character:getVehicle() then
+    if sandboxVars.StandingReadingSpeed == 0 and not self.character:isSitOnGround() and not self.character:getVehicle() then
         self.character:Say(getText("IGUI_PlayerText_CantReadStanding"))
         return false
     end
@@ -156,7 +157,7 @@ do
     local metatable = __classmetatables[zombie.characters.IsoPlayer.class].__index
     local old_ReadLiterature = metatable.ReadLiterature
     function metatable.ReadLiterature(self, item) -- lua reimplementation of ReadLiterature that doesn't remove the item
-        if Literacy.IsRecipeBook(item) or not SandboxVars.Literacy.DontDestroyStatBooks then
+        if Literacy.IsRecipeBook(item) or not sandboxVars.DontDestroyStatBooks then
             old_ReadLiterature(self, item)
         else
             self:getStats():setStress(self:getStats():getStress() + item:getStressChange())
