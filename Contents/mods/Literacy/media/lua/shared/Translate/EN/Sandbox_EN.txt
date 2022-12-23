@@ -29,12 +29,12 @@ Sandbox_EN = {
     Sandbox_Literacy_LiteracyLevelMultIncrease_tooltip = "How much the XP multiplier increases with each Literacy level after 5 as an additive percentage. Levels below 5 always decrease the multiplier by 0.05 each when this value is nonzero.",
 
     Sandbox_Literacy_WalkWhileReadingLevel = "Read While Walking Level",
-    Sandbox_Literacy_WalkWhileReadingLevel_tooltip = "What level you unlock the ability to walk while reading. -1 means never, 0 means it is always possible.",
+    Sandbox_Literacy_WalkWhileReadingLevel_tooltip = "The level at which you unlock the ability to walk while reading. -1 means never, 0 means it is always possible.",
     Sandbox_Literacy_SpeedWhileMoving = "Walking Reading Speed Penalty",
-    Sandbox_Literacy_SpeedWhileMoving_tooltip = "Reading speed is multiplied by this value while moving - 1 means no speed penalty.",
+    Sandbox_Literacy_SpeedWhileMoving_tooltip = "Reading speed is multiplied by this value while moving: 1 means no speed penalty.",
 
     Sandbox_Literacy_StandingReadingSpeed = "Standing Reading Speed",
-    Sandbox_Literacy_StandingReadingSpeed_tooltip = "Reading speed is multiplied by this value while not sitting - 1 means no speed penalty. 0 means you can't read while standing at all.",
+    Sandbox_Literacy_StandingReadingSpeed_tooltip = "Reading speed is multiplied by this value while not sitting: 1 means no speed penalty. 0 means you can't read while standing at all.",
 
     Sandbox_Literacy_ReadInTheDark = "Read in the Dark",
     Sandbox_Literacy_ReadInTheDark_tooltip = "If disabled, characters can't read in low light levels.",

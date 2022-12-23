@@ -26,7 +26,7 @@ local old_new = ISReadABook.new
 function ISReadABook:new(character, item, time)
     local o = old_new(self, character, item, time)
 
-    local readingLevel = self.character:getPerkLevel(Perks.Reading)
+    local readingLevel = o.character:getPerkLevel(Perks.Reading)
 
     if o.maxMultiplier and character:HasTrait('PoorReader') then
         o.maxMultiplier = o.maxMultiplier * 0.75
@@ -138,15 +138,13 @@ function ISReadABook:changeMaxTime(newTime)
     self:setCurrentTime(self.action:getCurrentTime() * mult)
 end
 
-do
-    local metatable = __classmetatables[zombie.characters.IsoPlayer.class].__index
-    local old_ReadLiterature = metatable.ReadLiterature
-    function metatable.ReadLiterature(self, item) -- lua reimplementation of ReadLiterature that doesn't remove the item
-        if Literacy.IsRecipeBook(item) or not sandboxVars.DontDestroyStatBooks then
-            old_ReadLiterature(self, item)
-        else
-            self:getStats():setStress(self:getStats():getStress() + item:getStressChange())
-            self:getBodyDamage():JustReadSomething(item)
-        end
+local metatable = __classmetatables[zombie.characters.IsoPlayer.class].__index
+local old_ReadLiterature = metatable.ReadLiterature
+function metatable.ReadLiterature(self, item) -- lua reimplementation of ReadLiterature that doesn't remove the item
+    if Literacy.IsRecipeBook(item) or not sandboxVars.DontDestroyStatBooks then
+        old_ReadLiterature(self, item)
+    else
+        self:getStats():setStress(self:getStats():getStress() + item:getStressChange())
+        self:getBodyDamage():JustReadSomething(item)
     end
 end

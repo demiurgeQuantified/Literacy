@@ -43,14 +43,14 @@ function Literacy.applyTraitModifiers(character, speed)
 end
 
 ---@param character IsoLivingCharacter
-function Literacy.setInitialLiteracy(character)
+function Literacy.setInitialLiteracy(_playerNum, character)
     local modData = character:getModData()
     if not modData.LiteracySetUp then
         character:level0(Perks.Reading)
         character:getXp():setPerkBoost(Perks.Reading, 0)
 
         if not character:HasTrait('Illiterate') then
-            local desiredLevel = Literacy.getInitialLiteracyLevel(player)
+            local desiredLevel = Literacy.getInitialLiteracyLevel(character)
             for i=1, desiredLevel do
                 character:LevelPerk(Perks.Reading)
             end

@@ -93,19 +93,18 @@ function ISInventoryPane:refreshContainer()
             local book = books:get(i)
             if Literacy.PlayerHasReadBook(getSpecificPlayer(self.player), book) then
                 book:setName(getText('IGUI_ReadIndicator', book:getScriptItem():getDisplayName()))
+                -- this will break mods that change the names of instances of the item, but only in splitscreen
             end
         end
     end
     old_refreshContainer(self)
 end
 
-do
-    local metatable = __classmetatables[zombie.inventory.types.Literature.class].__index
-    local old_getName = metatable.getName
-    function metatable.getName(self)
-        if getNumActivePlayers() == 1 and Literacy.PlayerHasReadBook(getPlayer(), self) then
-            return getText('IGUI_ReadIndicator', old_getName(self))
-        end
-        return old_getName(self)
+local metatable = __classmetatables[zombie.inventory.types.Literature.class].__index
+local old_getName = metatable.getName
+function metatable.getName(self)
+    if getNumActivePlayers() == 1 and Literacy.PlayerHasReadBook(getPlayer(), self) then
+        return getText('IGUI_ReadIndicator', old_getName(self))
     end
+    return old_getName(self)
 end
