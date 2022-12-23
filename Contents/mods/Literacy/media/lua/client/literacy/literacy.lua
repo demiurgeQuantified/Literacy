@@ -15,18 +15,22 @@
 
     For any questions, contact me through steam or on Discord - albion#0123
 ]]
+local Starlit = require 'literacy/lib/starlit'
 local Literacy = {}
 
-function Literacy.getInitialLiteracyLevel(player)
+---@param character IsoGameCharacter
+function Literacy.getInitialLiteracyLevel(character)
     local level = 5
-    if player:HasTrait('FastReader') then
+    if character:HasTrait('FastReader') then
         level = level + 1
-    elseif player:HasTrait('SlowReader') then
+    elseif character:HasTrait('SlowReader') then
         level = level - 1
     end
     return level
 end
 
+---@param character IsoGameCharacter
+---@param speed number
 function Literacy.applyTraitModifiers(character, speed)
     if character:HasTrait('FastReader') then
         speed = speed + 0.2
@@ -38,26 +42,25 @@ function Literacy.applyTraitModifiers(character, speed)
     return speed
 end
 
-function Literacy.setInitialLiteracy(_playerNum, player)
-    local modData = player:getModData()
+---@param character IsoLivingCharacter
+function Literacy.setInitialLiteracy(character)
+    local modData = character:getModData()
     if not modData.LiteracySetUp then
-        player:level0(Perks.Reading)
-        player:getXp():setPerkBoost(Perks.Reading, 0)
+        character:level0(Perks.Reading)
+        character:getXp():setPerkBoost(Perks.Reading, 0)
 
-        if not player:HasTrait('Illiterate') then
+        if not character:HasTrait('Illiterate') then
             local desiredLevel = Literacy.getInitialLiteracyLevel(player)
             for i=1, desiredLevel do
-                player:LevelPerk(Perks.Reading)
+                character:LevelPerk(Perks.Reading)
             end
-            player:getXp():setXPToLevel(Perks.Reading, desiredLevel)
+            character:getXp():setXPToLevel(Perks.Reading, desiredLevel)
         end
         modData.LiteracySetUp = true
     end
-    if not modData.StarlitUUID then
-        modData.StarlitUUID = getRandomUUID()
-    end
+    Starlit.assignUUID(character)
 end
-Events.OnCreatePlayer.Add(Literacy.setInitialLiteracy)
+Events.OnCreateLivingCharacter.Add(Literacy.setInitialLiteracy)
 
 function Literacy.calculateReadingSpeed(character)
     local readingSpeed = character:getPerkLevel(Perks.Reading)
@@ -90,7 +93,7 @@ end
 Events.LevelPerk.Add(Literacy.LevelPerk)
 
 function Literacy.PlayerHasReadBook(player, book)
-    return book:getModData()['AlreadyReadPlayers'] and book:getModData()['AlreadyReadPlayers'][player:getModData().StarlitUUID]
+    return book:getModData().AlreadyReadPlayers and book:getModData().AlreadyReadPlayers[player:getModData().StarlitUUID]
 end
 
 function Literacy.IsRecipeBook(book)

@@ -16,6 +16,7 @@
     For any questions, contact me through steam or on Discord - albion#0123
 ]]
 local Literacy = require 'literacy/literacy'
+local Starlit = require 'literacy/lib/starlit'
 local sandboxVars = SandboxVars.Literacy
 
 local readingDifficultyMultipliers = {1, 1.05, 1.1, 1.15, 1.2, 1.25, 1.3, 1.35, 1.4, 1.45}
@@ -112,28 +113,12 @@ local old_isValid = ISReadABook.isValid
 
 function ISReadABook:isValid()
     if Literacy.PlayerHasReadBook(self.character, self.item) or self.character:getAlreadyReadBook():contains(self.item:getFullType()) then
-        local line
-        local rand = ZombRand(1, 3)
-        if rand == 1 then
-            line = getText("IGUI_PlayerText_AlreadyRead")
-        else
-            line = getText("IGUI_PlayerText_AlreadyRead2")
-        end
-        self.character:Say(line)
-
+        Starlit.sayRandomLine(self.character, {'IGUI_PlayerText_AlreadyRead', 'IGUI_PlayerText_AlreadyRead2'})
         return false
     end
 
     if not sandboxVars.ReadInTheDark and self.character:getSquare():getLightLevel(self.character:getPlayerNum()) < 0.35 then
-        local line
-        local rand = ZombRand(1, 3)
-        if rand == 1 then
-            line = getText("IGUI_PlayerText_CantReadDark")
-        else
-            line = getText("IGUI_PlayerText_CantReadDark2")
-        end
-        self.character:Say(line)
-
+        Starlit.sayRandomLine(self.character, {'IGUI_PlayerText_CantReadDark', 'IGUI_PlayerText_CantReadDark2'})
         return false
     end
 
