@@ -20,15 +20,15 @@ local sandboxVars = SandboxVars.Literacy
 
 local function HandleDistributions()
     local bookLocationsAndValues = {
-        ['BookstoreBooks'] = {10, 8, 6, 4, 2},
-        ['ClassroomMisc'] = {2, 1, 0.5, 0.1, 0.01},
-        ['ClassroomShelves'] = {2, 1, 0.5, 0.1, 0.01},
-        ['CrateBooks'] = {6, 4, 2, 1, 0.5},
-        ['LibraryBooks'] = {8, 6, 4, 2, 1},
-        ['LivingRoomShelf'] = {2, 1, 0.5, 0.1, 0.01},
-        ['LivingRoomShelfNoTapes'] = {2, 1, 0.5, 0.1, 0.01},
-        ['PostOfficeBooks'] = {6, 4, 2, 1, 0.5},
-        ['ShelfGeneric'] = {2, 1, 0.5, 0.1, 0.01},
+        BookstoreBooks = {10, 8, 6, 4, 2},
+        ClassroomMisc = {2, 1, 0.5, 0.1, 0.01},
+        ClassroomShelves = {2, 1, 0.5, 0.1, 0.01},
+        CrateBooks = {6, 4, 2, 1, 0.5},
+        LibraryBooks = {8, 6, 4, 2, 1},
+        LivingRoomShelf = {2, 1, 0.5, 0.1, 0.01},
+        LivingRoomShelfNoTapes = {2, 1, 0.5, 0.1, 0.01},
+        PostOfficeBooks = {6, 4, 2, 1, 0.5},
+        ShelfGeneric = {2, 1, 0.5, 0.1, 0.01},
     }
     
     local wantedBooks = {}

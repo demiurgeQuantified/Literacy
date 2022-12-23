@@ -23,7 +23,7 @@ do
 
     if not supportedLanguages[lang] then
         local skills = {'Reloading', 'Aiming', 'Strength', 'Fitness', 'Nimble', 'Sprinting', 'Sneak', 'Lightfoot', 'Maintenance', 'Axe', 'SmallBlunt', 'Blunt', 'SmallBlade', 'LongBlade', 'Spear'}
-        local skillTranslation = {['Lightfoot'] = 'Lightfooted', ['Sneak'] = 'Sneaking'}
+        local skillTranslation = {Lightfoot = 'Lightfooted', Sneak = 'Sneaking'}
         local scriptManager = getScriptManager()
         
         for _,skill in ipairs(skills) do

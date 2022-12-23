@@ -15,7 +15,7 @@
 
     For any questions, contact me through steam or on Discord - albion#0123
 ]]
-local Starlit = require 'lib/starlit'
+local Starlit = require 'literacy/lib/starlit'
 
 Starlit.doItemParam('Base.Book', 'XPReward = 20')
 Starlit.doItemParam('Base.Magazine', 'XPReward = 3')

@@ -60,7 +60,7 @@ function Literacy.setInitialLiteracy(character)
     end
     Starlit.assignUUID(character)
 end
-Events.OnCreateLivingCharacter.Add(Literacy.setInitialLiteracy)
+Events.OnCreatePlayer.Add(Literacy.setInitialLiteracy)
 
 function Literacy.calculateReadingSpeed(character)
     local readingSpeed = character:getPerkLevel(Perks.Reading)
