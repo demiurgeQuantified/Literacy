@@ -16,8 +16,9 @@
     For any questions, contact me through steam or on Discord - albion#0123
 ]]
 local Literacy = require 'literacy/literacy'
+local Starlit = require 'literacy/lib/starlit'
 
-local old_checkXPBoost = CharacterCreationProfession.checkXPBoost
+local old_checkXPBoost = Starlit.saveFunc('CharacterCreationProfession.checkXPBoost')
 
 function CharacterCreationProfession:checkXPBoost()
     old_checkXPBoost(self)
@@ -41,7 +42,7 @@ function CharacterCreationProfession:checkXPBoost()
     self.listboxXpBoost:sort()
 end
 
-local old_drawXpBoostMap = CharacterCreationProfession.drawXpBoostMap
+local old_drawXpBoostMap = Starlit.saveFunc('CharacterCreationProfession.drawXpBoostMap')
 
 function CharacterCreationProfession:drawXpBoostMap(y, item, alt)
     if item.item.perk == Perks.Reading then
@@ -70,7 +71,7 @@ function CharacterCreationProfession:drawXpBoostMap(y, item, alt)
     end
 end
 
-local old_updateTooltip = ISSkillProgressBar.updateTooltip
+local old_updateTooltip = Starlit.saveFunc('ISSkillProgressBar.updateTooltip')
 
 function ISSkillProgressBar:updateTooltip(lvlSelected)
     old_updateTooltip(self, lvlSelected)
@@ -84,7 +85,7 @@ function ISSkillProgressBar:updateTooltip(lvlSelected)
     end
 end
 
-local old_refreshContainer = ISInventoryPane.refreshContainer
+local old_refreshContainer = Starlit.saveFunc('ISInventoryPane.refreshContainer')
 
 function ISInventoryPane:refreshContainer()
     if getNumActivePlayers() ~= 1 then
@@ -100,7 +101,7 @@ function ISInventoryPane:refreshContainer()
     old_refreshContainer(self)
 end
 
-local metatable = __classmetatables[zombie.inventory.types.Literature.class].__index
+local metatable = Starlit.getMetatable('Literature')
 local old_getName = metatable.getName
 function metatable.getName(self)
     if getNumActivePlayers() == 1 and Literacy.PlayerHasReadBook(getPlayer(), self) then

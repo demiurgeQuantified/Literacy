@@ -21,7 +21,7 @@ local sandboxVars = SandboxVars.Literacy
 
 local readingDifficultyMultipliers = {1, 1.05, 1.1, 1.15, 1.2, 1.25, 1.3, 1.35, 1.4, 1.45}
 
-local old_new = ISReadABook.new
+local old_new = Starlit.saveFunc('ISReadABook.new')
 
 function ISReadABook:new(character, item, time)
     local o = old_new(self, character, item, time)
@@ -72,7 +72,7 @@ function ISReadABook:new(character, item, time)
     return o
 end
 
-local old_update = ISReadABook.update
+local old_update = Starlit.saveFunc('ISReadABook.update')
 
 function ISReadABook:update()
     if self.character:isPlayerMoving() then
@@ -91,16 +91,20 @@ function ISReadABook:update()
         local difference = pagesRead - self.item:getAlreadyReadPages()
         self.character:getXp():AddXP(Perks.Reading, difference * 1.5 * readingDifficultyMultipliers[self.item:getLvlSkillTrained()] * sandboxVars.XPMultiplier)
     end
+    --TODO: optionally give xp instead of multiplier
     old_update(self)
 end
 
-local old_perform = ISReadABook.perform
+local old_perform = Starlit.saveFunc('ISReadABook.perform')
 
 function ISReadABook:perform()
     if self.stats then
         local modData = self.item:getModData()
         local XPReward = modData['XPReward'] or 3
         self.character:getXp():AddXP(Perks.Reading, (XPReward * 4) * sandboxVars.XPMultiplier)
+        -- TODO: compatibility with chuck's Named Literature
+        -- ignore this entire mechanic when it's enabled
+        -- reduce reading xp on re-reads, like how stats from books are reduced
         if sandboxVars.DontDestroyStatBooks and not Literacy.IsRecipeBook(self.item) then
             if not modData['AlreadyReadPlayers'] then modData['AlreadyReadPlayers'] = {} end
             modData['AlreadyReadPlayers'][self.character:getModData().StarlitUUID] = true
@@ -109,7 +113,7 @@ function ISReadABook:perform()
     old_perform(self)
 end
 
-local old_isValid = ISReadABook.isValid
+local old_isValid = Starlit.saveFunc('ISReadABook.isValid')
 
 function ISReadABook:isValid()
     if Literacy.PlayerHasReadBook(self.character, self.item) or self.character:getAlreadyReadBook():contains(self.item:getFullType()) then
@@ -138,7 +142,7 @@ function ISReadABook:changeMaxTime(newTime)
     self:setCurrentTime(self.action:getCurrentTime() * mult)
 end
 
-local metatable = __classmetatables[zombie.characters.IsoPlayer.class].__index
+local metatable = Starlit.getMetatable('IsoPlayer')
 local old_ReadLiterature = metatable.ReadLiterature
 function metatable.ReadLiterature(self, item) -- lua reimplementation of ReadLiterature that doesn't remove the item
     if Literacy.IsRecipeBook(item) or not sandboxVars.DontDestroyStatBooks then
