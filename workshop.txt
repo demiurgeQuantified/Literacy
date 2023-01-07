@@ -15,6 +15,7 @@ description=[h1]Mod Compatibility[/h1]
 description=This mod does not replace any vanilla functions, so it should be compatible with any other well written mod, even if it also modifies reading mechanics. You will also gain XP for any modded books and readables.
 description=[h1]Translation Credits[/h1]
 description=Turkish translation by [url=https://steamcommunity.com/profiles/76561198200571375]recep ivedik[/url]
+description=Thai translation by [url=https://steamcommunity.com/id/Overlord101TH/]Overlord[/url]
 description=
 description=If you enjoy my mods, I'd appreciate it a lot if you considered leaving me a tip ^u^
 description=[url=https://ko-fi.com/starseamstress][img]https://storage.ko-fi.com/cdn/brandasset/kofi_button_dark.png[/img][/url]

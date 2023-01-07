@@ -1,0 +1,50 @@
+Sandbox_TH = {
+	Sandbox_Literacy = "การเรียนรู้หนังสือ",
+	
+	Sandbox_Literacy_SpeedMultiplier = "ความเร็วในการอ่านต่อระดับ",
+	Sandbox_Literacy_SpeedMultiplier_tooltip = "ความเร็วในการอ่านส่งผลต่อทักษะการรู้หนังสือมากน้อยเพียงใด (ความเร็วที่ต่ำกว่าระดับ 5 จะคำนวณที่ 20% ต่อระดับเสมอ)",
+	Sandbox_Literacy_SpeedMultiplierLevels_option1 = "10%",
+	Sandbox_Literacy_SpeedMultiplierLevels_option2 = "ค่าเริ่มต้น (20%)",
+	Sandbox_Literacy_SpeedMultiplierLevels_option3 = "40%",
+	
+	Sandbox_Literacy_XPMultiplier = "ตัวคูณความรู้ XP",
+	Sandbox_Literacy_XPMultiplier_tooltip = "แก้ไขอัตราการได้รับความรู้ XP",
+	Sandbox_Literacy_XPMultiplierLevels_option1 = "0.5x",
+	Sandbox_Literacy_XPMultiplierLevels_option2 = "ค่าเริ่มต้น",
+	Sandbox_Literacy_XPMultiplierLevels_option3 = "2x",
+	
+	Sandbox_Literacy_TraitMultiplier = "ความเร็วโบนัสลักษณะ",
+	Sandbox_Literacy_TraitMultiplier_tooltip = "อ่านเร็ว และ อ่านช้า มีผลกับความเร็วในการอ่านมากน้อยเพียงใด ไม่รวมถึงการเพิ่มทักษะเริ่มต้น",
+	Sandbox_Literacy_TraitMultiplierLevels_option1 = "ไม่มีโบนัส",
+	Sandbox_Literacy_TraitMultiplierLevels_option2 = "ค่าเริ่มต้น (10%)",
+	Sandbox_Literacy_TraitMultiplierLevels_option3 = "20%",
+	
+	Sandbox_Literacy_OverallSpeedMultiplier = "ตัวคูณความเร็วในการอ่านโดยรวม",
+	Sandbox_Literacy_OverallSpeedMultiplier_tooltip = "เพิ่มความเร็วในการอ่านโดยรวมของผู้เล่น",
+	Sandbox_Literacy_OverallSpeedMultiplierLevels_option1 = "ค่าเริ่มต้น",
+	Sandbox_Literacy_OverallSpeedMultiplierLevels_option2 = "1.5x",
+	Sandbox_Literacy_OverallSpeedMultiplierLevels_option3 = "2x",
+
+	Sandbox_Literacy_IlliteratePenalty = "ไม่รู้หนังสือ: โทษถาวร",
+	Sandbox_Literacy_IlliteratePenalty_tooltip = "ดีบัฟที่เหลืออยู่หลังจากสูญเสียคุณสมบัติผู้ไม่รู้หนังสือ",
+	Sandbox_Literacy_IlliteratePenalties_option1 = "ไม่มี",
+	Sandbox_Literacy_IlliteratePenalties_option2 = "อ่านช้า และ อ่านห่วย",
+	Sandbox_Literacy_IlliteratePenalties_option3 = "อ่านช้ามาก",
+	
+	Sandbox_Literacy_WantGunBooks = "หนังสือทักษะการใช้ปืน",
+	Sandbox_Literacy_WantGunBooks_tooltip = "เพิ่มหนังสือทักษะสำหรับการเล็งและการบรรจุกระสุน",
+	Sandbox_Literacy_WantPassiveBooks = "พละกำลัง และ ความฟิต หนังสือทักษะ",
+	Sandbox_Literacy_WantPassiveBooks_tooltip = "เพิ่มหนังสือทักษะ พละกำลัง และ ความฟิต",
+	Sandbox_Literacy_WantAgilityBooks = "หนังสือทักษะความว่องไว",
+	Sandbox_Literacy_WantAgilityBooks_tooltip = "เพิ่มหนังสือทักษะ การวิ่ง, ความปราดเปรียว, การลอบเร้น และ การเดินเสียงเบา",
+	Sandbox_Literacy_WantWeaponBooks = "หนังสือทักษะการใช้อาวุธ",
+	Sandbox_Literacy_WantWeaponBooks_tooltip = "เพิ่มหนังสือทักษะ อาวุธระยะประชิด",
+	Sandbox_Literacy_WantMaintenanceBooks = "หนังสือทักษะการดูแลรักษาอาวุธ",
+	Sandbox_Literacy_WantMaintenanceBooks_tooltip = "เพิ่มหนังสือทักษะการดูแลรักษาอาวุธ",
+	Sandbox_Literacy_WantLiteracyMag = "นิตยสารความรู้",
+	Sandbox_Literacy_WantLiteracyMag_tooltip = "ปิดเพื่อหยุด 'เรียนรู้ที่จะอ่าน!' นิตยสารจากการเกิดใหม่",
+	Sandbox_Literacy_LiteracyMagCraftable = "การเรียนรู้หนังสือ นิตยสาร ประดิษฐ์ได้",
+	
+	Sandbox_Literacy_SafeMode = "โหมดปลอดภัย",
+	Sandbox_Literacy_SafeMode_tooltip = "ปิดใช้งานรหัสการเกิดใหม่หนังสือแบบกำหนดเองที่ใช้โดยม็อดนี้ โดยปกติแล้วสิ่งนี้จำเป็นเมื่อใช้ม็อดที่เพิ่มหนังสือหรือรายการจำนวนมากที่เกิดใหม่ในที่ที่มีหนังสือ เช่น True Music",
+}

@@ -1,0 +1,3 @@
+Recipes_TH = {
+	Recipe_Make_Reading_Guide = "จัดทำคู่มือการอ่าน",
+}

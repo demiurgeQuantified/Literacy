@@ -1,0 +1,6 @@
+UI_TH = {
+	UI_trait_PoorReader = "อ่านไม่ออก",
+	UI_trait_PoorReaderDesc = "ตัวคูณ XP ลดลงจากหนังสือ",
+	UI_trait_VerySlowReader = "อ่านช้ามาก",
+	UI_trait_VerySlowReaderDesc = "ใช้เวลาอ่านหนังสือนานกว่าเดิม",
+}

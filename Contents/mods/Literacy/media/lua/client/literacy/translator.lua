@@ -16,7 +16,7 @@
     For any questions, contact me through steam or on Discord - albion#0123
 ]]
 do
-    local supportedLanguages = {['EN'] = true, ['TR'] = true} -- languages with full translations
+    local supportedLanguages = {['EN'] = true, ['TR'] = true, ['TH'] = true} -- languages with full translations
     local specialNumerationLanguages = {['PL'] = true} -- languages you can't just insert i into to get the correct translation
 
     local lang = getCore():getOptionLanguageName()

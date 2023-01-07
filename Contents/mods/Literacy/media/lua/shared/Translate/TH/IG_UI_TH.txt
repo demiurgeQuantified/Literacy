@@ -1,3 +1,5 @@
-IG_UI_TH = {
-    IGUI_BookName = "%1 เล่มที่ %2",
+IGUI_TH = {
+	IGUI_perks_Mind = "จิตใจ",
+	IGUI_perks_Reading = "การอ่านออกเขียนได้",
+	IGUI_XP_readingspeed = "ความเร็วในการอ่าน: %1",
 }
