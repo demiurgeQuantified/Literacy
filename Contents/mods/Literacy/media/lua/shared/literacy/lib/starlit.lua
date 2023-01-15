@@ -32,10 +32,14 @@ end
 
 ---Assigns a UUID to a character, if they don't already have one
 ---@param character IsoGameCharacter
-Starlit.assignUUID = function(character)
+---@param shouldTransmit boolean Whether to transmit the moddata afterwards
+Starlit.assignUUID = function(character, shouldTransmit)
     local modData = character:getModData()
     if not modData.StarlitUUID then
         modData.StarlitUUID = getRandomUUID()
+        if shouldTransmit then
+            character:transmitModData()
+        end
     end
 end
 

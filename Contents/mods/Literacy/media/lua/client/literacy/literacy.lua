@@ -59,6 +59,7 @@ function Literacy.setInitialLiteracy(_playerNum, character)
         modData.LiteracySetUp = true
     end
     Starlit.assignUUID(character)
+    character:transmitModData()
 end
 Events.OnCreatePlayer.Add(Literacy.setInitialLiteracy)
 
