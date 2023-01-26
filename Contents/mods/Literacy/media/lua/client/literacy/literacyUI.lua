@@ -101,7 +101,7 @@ function ISInventoryPane:refreshContainer()
     old_refreshContainer(self)
 end
 
-local metatable = Starlit.getMetatable('Literature')
+local metatable = Starlit.findMetatable('Literature')
 local old_getName = metatable.getName
 function metatable.getName(self)
     if getNumActivePlayers() == 1 and Literacy.PlayerHasReadBook(getPlayer(), self) then

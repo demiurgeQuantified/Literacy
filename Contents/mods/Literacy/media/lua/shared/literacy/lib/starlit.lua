@@ -5,21 +5,6 @@ if getDebug() then
     Starlit.funcCache = {}
 end
 
---Maps all of the classes to their names, so that they can be accessed with a prettier syntax
-Starlit.classTable = {}
-local function crawlMetatable(t)
-    for k,v in pairs(t) do
-        if type(v) == 'table' then
-            if v.class then
-                Starlit.classTable[k] = v.class
-            else
-                crawlMetatable(v)
-            end
-        end
-    end
-end
-crawlMetatable(zombie)
-
 ---Applies the given parameter to the given item script, if it exists
 ---@param script string
 ---@param tweak string
@@ -53,8 +38,8 @@ end
 
 ---Returns the metatable from the class name
 ---@param className string
-Starlit.getMetatable = function(className)
-    return __classmetatables[Starlit.classTable[className]].__index
+Starlit.findMetatable = function(className)
+    return __classmetatables[_G[className].class].__index
 end
 
 ---Returns a function object from a string global variable name

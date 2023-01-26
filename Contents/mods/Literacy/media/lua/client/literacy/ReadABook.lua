@@ -142,7 +142,7 @@ function ISReadABook:changeMaxTime(newTime)
     self:setCurrentTime(self.action:getCurrentTime() * mult)
 end
 
-local metatable = Starlit.getMetatable('IsoPlayer')
+local metatable = Starlit.findMetatable('IsoPlayer')
 local old_ReadLiterature = metatable.ReadLiterature
 function metatable.ReadLiterature(self, item) -- lua reimplementation of ReadLiterature that doesn't remove the item
     if Literacy.IsRecipeBook(item) or not sandboxVars.DontDestroyStatBooks then
