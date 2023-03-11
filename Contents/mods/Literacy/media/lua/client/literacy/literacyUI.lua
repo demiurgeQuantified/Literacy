@@ -79,7 +79,7 @@ function ISSkillProgressBar:updateTooltip(lvlSelected)
         local readingSpeed = Literacy.calculateReadingSpeed(self.char)
         readingSpeed = readingSpeed * 100
         readingSpeed = math.floor(readingSpeed + 0.5)
-        self.message = self.message .. ' <LINE> ' .. getText('IGUI_XP_readingspeed', readingSpeed) .. '%'
+        self.message = self.message .. ' <LINE> ' .. getText('IGUI_XP_readingspeed', readingSpeed)
     end
 end
 
