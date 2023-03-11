@@ -17,6 +17,7 @@
 ]]
 local Starlit = require 'literacy/lib/starlit'
 local Literacy = {}
+local sandboxVars = SandboxVars.Literacy
 
 ---@param character IsoGameCharacter
 function Literacy.getInitialLiteracyLevel(character)
@@ -78,6 +79,26 @@ function Literacy.calculateReadingSpeed(character)
     readingSpeed = readingSpeed + 1
     readingSpeed = math.max(0.2, readingSpeed)
     return readingSpeed
+end
+
+---@param character IsoLivingCharacter
+function Literacy.calculateReadingMultiplier(character)
+    local mult = 1
+
+    if sandboxVars.LiteracyLevelMultIncrease ~= 0 then
+        local readingLevel = character:getPerkLevel(Perks.Reading) - 5
+        if readingLevel > 0 then
+            mult = mult * 1 + readingLevel * sandboxVars.LiteracyLevelMultIncrease
+        elseif readingLevel < 0 then
+            mult = mult * 1 + readingLevel * 0.05
+        end
+    end
+
+    if character:HasTrait('PoorReader') then
+        mult = mult * 0.75
+    end
+
+    return mult
 end
 
 function Literacy.LevelPerk(character, perk)

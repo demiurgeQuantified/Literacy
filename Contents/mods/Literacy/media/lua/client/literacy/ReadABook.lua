@@ -27,10 +27,6 @@ function ISReadABook:new(character, item, time)
     local o = old_new(self, character, item, time)
 
     local readingLevel = o.character:getPerkLevel(Perks.Reading)
-
-    if o.maxMultiplier and character:HasTrait('PoorReader') then
-        o.maxMultiplier = o.maxMultiplier * 0.75
-    end
     
     if readingLevel >= sandboxVars.WalkWhileReadingLevel then
         o.stopOnWalk = false
@@ -40,13 +36,7 @@ function ISReadABook:new(character, item, time)
     end
     o.characterWasMoving = false
 
-    if sandboxVars.LiteracyLevelMultIncrease ~= 0 then
-        if readingLevel > 5 then
-            o.maxMultiplier = o.maxMultiplier * (readingLevel - 5) * (1 + sandboxVars.LiteracyLevelMultIncrease)
-        elseif readingLevel < 5 then
-            o.maxMultiplier = o.maxMultiplier * (1 - (readingLevel - 5) * -0.05)
-        end
-    end
+    o.maxMultiplier = o.maxMultiplier * Literacy.calculateReadingMultiplier(o.character)
 
     if character:isTimedActionInstant() then
         return o
@@ -100,14 +90,14 @@ local old_perform = Starlit.saveFunc('ISReadABook.perform')
 function ISReadABook:perform()
     if self.stats then
         local modData = self.item:getModData()
-        local XPReward = modData['XPReward'] or 3
+        local XPReward = modData.XPReward or 3
         self.character:getXp():AddXP(Perks.Reading, (XPReward * 4) * sandboxVars.XPMultiplier)
         -- TODO: compatibility with chuck's Named Literature
         -- ignore this entire mechanic when it's enabled
         -- reduce reading xp on re-reads, like how stats from books are reduced
         if sandboxVars.DontDestroyStatBooks and not Literacy.IsRecipeBook(self.item) then
-            if not modData['AlreadyReadPlayers'] then modData['AlreadyReadPlayers'] = {} end
-            modData['AlreadyReadPlayers'][self.character:getModData().StarlitUUID] = true
+            if not modData.AlreadyReadPlayers then modData.AlreadyReadPlayers = {} end
+            modData.AlreadyReadPlayers[self.character:getModData().StarlitUUID] = true
         end
     end
     old_perform(self)
