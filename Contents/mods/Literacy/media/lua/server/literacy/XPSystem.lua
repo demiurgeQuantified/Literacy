@@ -17,13 +17,13 @@
 ]]
 
 local skills = {'Reading', 'Reloading', 'Aiming', 'Strength', 'Fitness', 'Nimble', 'Sprinting', 'Sneak', 'Lightfoot', 'Maintenance', 'Axe', 'SmallBlunt', 'Blunt', 'SmallBlade', 'LongBlade', 'Spear'}
+local multipliers = {3,5,8,12,16}
 
-for _,skill in ipairs(skills) do
+for i = 1, #skills do
+    local skill = skills[i]
     SkillBook[skill] = {}
     SkillBook[skill].perk = Perks[skill]
-    SkillBook[skill].maxMultiplier1 = 3
-    SkillBook[skill].maxMultiplier2 = 5
-    SkillBook[skill].maxMultiplier3 = 8
-    SkillBook[skill].maxMultiplier4 = 12
-    SkillBook[skill].maxMultiplier5 = 16
+    for j = 1, #multipliers do
+        SkillBook[skill]["maxMultiplier" .. j] = multipliers[j]
+    end
 end
