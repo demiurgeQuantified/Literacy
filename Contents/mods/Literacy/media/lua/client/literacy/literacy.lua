@@ -44,9 +44,10 @@ function Literacy.applyTraitModifiers(character, speed)
 end
 
 ---@param character IsoLivingCharacter
-function Literacy.setInitialLiteracy(_playerNum, character)
+function Literacy.setupLiteracy(_playerNum, character)
     local modData = character:getModData()
-    if not modData.LiteracySetUp then
+    modData.literacy = modData.literacy or {}
+    if not modData.literacy.initialised then
         character:level0(Perks.Reading)
         character:getXp():setPerkBoost(Perks.Reading, 0)
 
@@ -57,12 +58,12 @@ function Literacy.setInitialLiteracy(_playerNum, character)
             end
             character:getXp():setXPToLevel(Perks.Reading, desiredLevel)
         end
-        modData.LiteracySetUp = true
+        modData.literacy.alreadyReadBooks = {}
+        modData.literacy.initialised = true
     end
-    Starlit.assignUUID(character)
     character:transmitModData()
 end
-Events.OnCreatePlayer.Add(Literacy.setInitialLiteracy)
+Events.OnCreatePlayer.Add(Literacy.setupLiteracy)
 
 function Literacy.calculateReadingSpeed(character)
     local readingSpeed = character:getPerkLevel(Perks.Reading)
@@ -114,10 +115,13 @@ function Literacy.LevelPerk(character, perk)
 end
 Events.LevelPerk.Add(Literacy.LevelPerk)
 
+---@param player IsoPlayer
+---@param book InventoryItem
 function Literacy.PlayerHasReadBook(player, book)
-    return book:getModData().AlreadyReadPlayers and book:getModData().AlreadyReadPlayers[player:getModData().StarlitUUID]
+    return player:getModData().literacy and player:getModData().literacy.alreadyReadBooks[book:getID()]
 end
 
+---@param book InventoryItem
 function Literacy.IsRecipeBook(book)
     return book:getTeachedRecipes() and not book:getTeachedRecipes():isEmpty()
 end

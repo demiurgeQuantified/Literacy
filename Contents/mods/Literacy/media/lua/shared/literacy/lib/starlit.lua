@@ -15,6 +15,19 @@ Starlit.doItemParam = function(script, tweak)
     end
 end
 
+---Adds the given tag to the given item script, if it exists
+---@param script string
+---@param tag string
+Starlit.addTag = function(script, tag)
+    local item = scriptManager:getItem(script)
+    if item then
+        local tags = item:getTags()
+        if not tags:contains(tag) then
+            tags:add(tag)
+        end
+    end
+end
+
 ---Assigns a UUID to a character, if they don't already have one
 ---@param character IsoGameCharacter
 ---@param shouldTransmit boolean Whether to transmit the moddata afterwards
