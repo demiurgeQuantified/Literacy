@@ -15,11 +15,11 @@
 
     For any questions, contact me through steam or on Discord - albion#0123
 ]]
-local Starlit = require 'literacy/lib/starlit'
 local Literacy = {}
 local sandboxVars = SandboxVars.Literacy
 
 ---@param character IsoGameCharacter
+---@return int
 function Literacy.getInitialLiteracyLevel(character)
     local level = 5
     if character:HasTrait('FastReader') then
@@ -32,6 +32,7 @@ end
 
 ---@param character IsoGameCharacter
 ---@param speed number
+---@return float
 function Literacy.applyTraitModifiers(character, speed)
     if character:HasTrait('FastReader') then
         speed = speed + 0.2
@@ -43,28 +44,34 @@ function Literacy.applyTraitModifiers(character, speed)
     return speed
 end
 
+---@param _playerNum int
 ---@param character IsoLivingCharacter
 function Literacy.setupLiteracy(_playerNum, character)
     local modData = character:getModData()
-    modData.literacy = modData.literacy or {}
-    if not modData.literacy.initialised then
-        character:level0(Perks.Reading)
-        character:getXp():setPerkBoost(Perks.Reading, 0)
-
-        if not character:HasTrait('Illiterate') then
-            local desiredLevel = Literacy.getInitialLiteracyLevel(character)
-            for i=1, desiredLevel do
-                character:LevelPerk(Perks.Reading)
+    modData.Literacy = modData.Literacy or {}
+    if modData.Literacy.version < 1 then
+        if not modData.LiteracySetUp then -- avoids resetting legacy saves
+            local xp = character:getXp()
+            character:level0(Perks.Reading)
+            xp:setPerkBoost(Perks.Reading, 0)
+        
+            if not character:HasTrait('Illiterate') then
+                local desiredLevel = Literacy.getInitialLiteracyLevel(character)
+                xp:setXPToLevel(Perks.Reading, desiredLevel)
+                for i=1, desiredLevel do
+                    character:LevelPerk(Perks.Reading)
+                end
             end
-            character:getXp():setXPToLevel(Perks.Reading, desiredLevel)
         end
-        modData.literacy.alreadyReadBooks = {}
-        modData.literacy.initialised = true
+        
+        modData.Literacy.alreadyReadBooks = {}
+        modData.Literacy.version = 1
     end
-    character:transmitModData()
 end
 Events.OnCreatePlayer.Add(Literacy.setupLiteracy)
 
+---@param character IsoGameCharacter
+---@return float
 function Literacy.calculateReadingSpeed(character)
     local readingSpeed = character:getPerkLevel(Perks.Reading)
     readingSpeed = math.max(1, readingSpeed)
@@ -83,6 +90,7 @@ function Literacy.calculateReadingSpeed(character)
 end
 
 ---@param character IsoLivingCharacter
+---@return float
 function Literacy.calculateReadingMultiplier(character)
     local mult = 1
 
@@ -102,6 +110,8 @@ function Literacy.calculateReadingMultiplier(character)
     return mult
 end
 
+---@param character IsoGameCharacter
+---@param perk Perk
 function Literacy.LevelPerk(character, perk)
     if perk == Perks.Reading then
         local queue = ISTimedActionQueue.getTimedActionQueue(character)
@@ -117,11 +127,13 @@ Events.LevelPerk.Add(Literacy.LevelPerk)
 
 ---@param player IsoPlayer
 ---@param book InventoryItem
+---@return boolean
 function Literacy.PlayerHasReadBook(player, book)
     return player:getModData().literacy and player:getModData().literacy.alreadyReadBooks[book:getID()]
 end
 
----@param book InventoryItem
+---@param book Literature
+---@return boolean
 function Literacy.IsRecipeBook(book)
     return book:getTeachedRecipes() and not book:getTeachedRecipes():isEmpty()
 end
