@@ -19,7 +19,24 @@ local Literacy = require 'literacy/literacy'
 local Starlit = require 'literacy/lib/starlit'
 local sandboxVars = SandboxVars.Literacy
 
-local readingDifficultyMultipliers = {1, 1.05, 1.1, 1.15, 1.2, 1.25, 1.3, 1.35, 1.4, 1.45}
+local ReadABook = {}
+
+ReadABook.readingDifficultyMultipliers = {1, 1.05, 1.1, 1.15, 1.2, 1.25, 1.3, 1.35, 1.4, 1.45}
+ReadABook.itemXP = {
+    default = 3,
+    ["Base.Book"] = 20,
+    ["Base.Magazine"] = 3,
+    ["Base.TVMagazine"] = 3,
+    ["Base.ComicBook"] = 3,
+    ["Base.Newspaper"] = 4.5,
+    ["Base.MagazineCrossword1"] = 4,
+    ["Base.MagazineCrossword2"] = 4,
+    ["Base.MagazineCrossword3"] = 4,
+    ["Base.MagazineWordsearch1"] = 4,
+    ["Base.MagazineWordsearch2"] = 4,
+    ["Base.MagazineWordsearch3"] = 4,
+    ["Base.HottieZ"] = 0,
+}
 
 local old_new = Starlit.saveFunc('ISReadABook.new')
 
@@ -35,8 +52,10 @@ function ISReadABook:new(character, item, time)
         o.stopOnWalk = true
     end
     o.characterWasMoving = false
-
-    o.maxMultiplier = o.maxMultiplier * Literacy.calculateReadingMultiplier(o.character)
+    
+    if o.maxMultiplier then -- undefined for stat books
+        o.maxMultiplier = o.maxMultiplier * Literacy.calculateReadingMultiplier(o.character)
+    end
 
     if character:isTimedActionInstant() then
         return o
@@ -79,7 +98,8 @@ function ISReadABook:update()
     local pagesRead = math.floor(self.item:getNumberOfPages() * self:getJobDelta())
     if pagesRead > self.item:getAlreadyReadPages() then
         local difference = pagesRead - self.item:getAlreadyReadPages()
-        self.character:getXp():AddXP(Perks.Reading, difference * 1.5 * readingDifficultyMultipliers[self.item:getLvlSkillTrained()] * sandboxVars.XPMultiplier)
+        self.character:getXp():AddXP(Perks.Reading,
+                                     difference * 1.5 * ReadABook.readingDifficultyMultipliers[self.item:getLvlSkillTrained()] * sandboxVars.XPMultiplier)
     end
     --TODO: optionally give xp instead of multiplier
     old_update(self)
@@ -89,9 +109,9 @@ local old_perform = Starlit.saveFunc('ISReadABook.perform')
 
 function ISReadABook:perform()
     if self.stats then
-        local modData = self.item:getModData()
-        local XPReward = modData.XPReward or 3
+        local XPReward = ReadABook.itemXP[self.item:getFullType()] or ReadABook.itemXP.default
         self.character:getXp():AddXP(Perks.Reading, (XPReward * 4) * sandboxVars.XPMultiplier)
+        
         -- TODO: compatibility with chuck's Named Literature
         -- ignore this entire mechanic when it's enabled
         -- reduce reading xp on re-reads, like how stats from books are reduced
@@ -124,6 +144,7 @@ function ISReadABook:isValid()
     return old_isValid(self)
 end
 
+---@param newTime int
 function ISReadABook:changeMaxTime(newTime)
     local mult = newTime / self.maxTime
     self:setTime(newTime)
@@ -141,3 +162,5 @@ function metatable.ReadLiterature(self, item) -- lua reimplementation of ReadLit
         self:getBodyDamage():JustReadSomething(item)
     end
 end
+
+return ReadABook

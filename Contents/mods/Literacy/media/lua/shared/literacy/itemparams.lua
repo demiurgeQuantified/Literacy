@@ -17,21 +17,6 @@
 ]]
 local Starlit = require 'literacy/lib/starlit'
 
-Starlit.doItemParam('Base.Book', 'XPReward = 20')
-Starlit.doItemParam('Base.Magazine', 'XPReward = 3')
-Starlit.doItemParam('Base.TVMagazine', 'XPReward = 3')
-Starlit.doItemParam('Base.HottieZ', 'XPReward = 3')
-Starlit.doItemParam('Base.ComicBook', 'XPReward = 3')
-Starlit.doItemParam('Base.Newspaper', 'XPReward = 4.5')
-
-Starlit.doItemParam('Base.MagazineCrossword1', 'XPReward = 3')
-Starlit.doItemParam('Base.MagazineCrossword2', 'XPReward = 3')
-Starlit.doItemParam('Base.MagazineCrossword3', 'XPReward = 3')
-
-Starlit.doItemParam('Base.MagazineWordsearch1', 'XPReward = 3')
-Starlit.doItemParam('Base.MagazineWordsearch2', 'XPReward = 3')
-Starlit.doItemParam('Base.MagazineWordsearch3', 'XPReward = 3')
-
 local bookToModel = {FirstAid = 2, Farming = 3, Trapping = 4, Fishing = 5, Electrician = 6, MetalWelding = 7,
                      Carpentry = 8, Cooking = 9, Foraging = 10, Mechanic = 11, Tailoring = 11}
 for skillbook,model in pairs(bookToModel) do
