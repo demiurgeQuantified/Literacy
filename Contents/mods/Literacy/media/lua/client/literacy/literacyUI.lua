@@ -80,7 +80,7 @@ function ISSkillProgressBar:updateTooltip(lvlSelected)
         readingSpeed = readingSpeed * 100
         readingSpeed = math.floor(readingSpeed + 0.5)
         self.message = self.message .. ' <LINE> ' .. getText('IGUI_XP_readingspeed', readingSpeed)
-
+        
         local readingMult = Literacy.calculateReadingMultiplier(self.char)
         readingMult = readingMult * 100
         readingMult = math.floor(readingMult + 0.5)
@@ -88,26 +88,28 @@ function ISSkillProgressBar:updateTooltip(lvlSelected)
     end
 end
 
-local old_refreshContainer = Starlit.saveFunc('ISInventoryPane.refreshContainer')
+-- this didn't work anyway TODO: just have a toggle to replace the function for splitscreen
 
-function ISInventoryPane:refreshContainer()
-    if getNumActivePlayers() ~= 1 then
-        local books = self.inventory:getItemsFromCategory('Literature')
-        for i = 0, books:size()-1 do
-            local book = books:get(i)
-            if Literacy.PlayerHasReadBook(getSpecificPlayer(self.player), book) then
-                book:setName(getText('IGUI_ReadIndicator', book:getScriptItem():getDisplayName()))
-                -- this will break mods that change the names of instances of the item, but only in splitscreen
-            end
-        end
-    end
-    old_refreshContainer(self)
-end
+--local old_refreshContainer = Starlit.saveFunc('ISInventoryPane.refreshContainer')
+--
+--function ISInventoryPane:refreshContainer()
+--    if getNumActivePlayers() ~= 1 then
+--        local books = self.inventory:getItemsFromCategory('Literature')
+--        for i = 0, books:size()-1 do
+--            local book = books:get(i)
+--            if Literacy.PlayerHasReadBook(getSpecificPlayer(self.player), book) then
+--                book:setName(getText('IGUI_ReadIndicator', book:getScriptItem():getDisplayName()))
+--                -- this will break mods that change the names of instances of the item, but only in splitscreen
+--            end
+--        end
+--    end
+--    old_refreshContainer(self)
+--end
 
 local metatable = Starlit.findMetatable('Literature')
 local old_getName = metatable.getName
 function metatable.getName(self)
-    if getNumActivePlayers() == 1 and Literacy.PlayerHasReadBook(getPlayer(), self) then
+    if Literacy.PlayerHasReadBook(getPlayer(), self) then
         return getText('IGUI_ReadIndicator', old_getName(self))
     end
     return old_getName(self)
