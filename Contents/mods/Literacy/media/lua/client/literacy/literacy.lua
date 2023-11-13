@@ -49,7 +49,7 @@ end
 function Literacy.setupLiteracy(_playerNum, character)
     local modData = character:getModData()
     modData.Literacy = modData.Literacy or {}
-    if modData.Literacy.version < 1 then
+    if not modData.Literacy.version or modData.Literacy.version < 1 then
         if not modData.LiteracySetUp then -- avoids resetting legacy saves
             local xp = character:getXp()
             character:level0(Perks.Reading)
@@ -129,7 +129,7 @@ Events.LevelPerk.Add(Literacy.LevelPerk)
 ---@param book InventoryItem
 ---@return boolean
 function Literacy.PlayerHasReadBook(player, book)
-    return player:getModData().literacy and player:getModData().literacy.alreadyReadBooks[book:getID()]
+    return player:getModData().Literacy and player:getModData().Literacy.alreadyReadBooks[book:getID()]
 end
 
 ---@param book Literature

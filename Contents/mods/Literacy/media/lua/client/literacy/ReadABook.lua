@@ -116,7 +116,7 @@ function ISReadABook:perform()
         -- ignore this entire mechanic when it's enabled
         -- reduce reading xp on re-reads, like how stats from books are reduced
         if sandboxVars.DontDestroyStatBooks and not Literacy.IsRecipeBook(self.item) then
-            self.character:getModData().literacy.alreadyReadBooks[self.item:getID()] = true
+            self.character:getModData().Literacy.alreadyReadBooks[self.item:getID()] = true
         end
     end
     old_perform(self)
