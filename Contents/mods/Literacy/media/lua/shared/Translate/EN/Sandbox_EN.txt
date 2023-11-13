@@ -25,7 +25,7 @@ Sandbox_EN = {
     Sandbox_Literacy_OverallSpeedMultiplierLevels_option2 = "1.5x",
     Sandbox_Literacy_OverallSpeedMultiplierLevels_option3 = "2x",
 
-    Sandbox_Literacy_LiteracyLevelMultIncrease = "XP Multipler Increase from Literacy Skill",
+    Sandbox_Literacy_LiteracyLevelMultIncrease = "XP Multiplier Increase from Literacy Skill",
     Sandbox_Literacy_LiteracyLevelMultIncrease_tooltip = "How much the XP multiplier increases with each Literacy level after 5 as an additive percentage. Levels below 5 always decrease the multiplier by 0.05 each when this value is nonzero.",
 
     Sandbox_Literacy_WalkWhileReadingLevel = "Read While Walking Level",
@@ -64,7 +64,4 @@ Sandbox_EN = {
 
     Sandbox_Literacy_WantLiteracyVHS = "Learn to Read VHS",
     Sandbox_Literacy_WantLiteracyVHS_tooltip = "Turn off to stop the 'Learn to Read!' VHS tape, which allows players to lose the Illiterate trait, from spawning.",
-
-    Sandbox_Literacy_SafeMode = "Safe Mode",
-    Sandbox_Literacy_SafeMode_tooltip = "Disables the custom book spawning code used by this mod. This is usually needed when using mods that add lots of books or items that spawn where books do, such as True Music.",
 }
